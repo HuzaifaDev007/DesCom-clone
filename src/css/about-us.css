@@ -1,0 +1,189 @@
+@reference "../index.css";
+
+.about-us-overview {
+  @apply relative isolate overflow-hidden bg-ink;
+  background-image: url("../assets/performanceSection/grid.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: contain;
+}
+
+.about-us-overview::before {
+  content: "";
+  @apply pointer-events-none absolute inset-0 -z-10;
+  background-image: radial-gradient(at bottom right, #050915d1 0%, #050915 25%);
+}
+
+.about-us-overview-glow {
+  @apply relative px-[15px];
+  background-image: radial-gradient(at top right, #1d52e529 0%, transparent 40%);
+}
+
+.about-us-overview-glow::before {
+  content: "";
+  @apply pointer-events-none absolute inset-0;
+  background-image: radial-gradient(at bottom left, #1d52e529 0%, transparent 40%);
+}
+
+.about-us-overview-inner {
+  @apply relative z-10 mx-auto flex w-full max-w-[1560px] flex-col gap-[35px] py-[50px];
+}
+
+.about-us-overview-intro {
+  @apply mx-auto flex w-full max-w-[900px] flex-col items-center;
+}
+
+.about-us-overview-heading {
+  @apply relative w-full;
+}
+
+.about-us-overview-kicker {
+  @apply pointer-events-none absolute top-1/2 left-1/2 m-0 -translate-x-1/2 -translate-y-1/2 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+}
+
+.about-us-overview-title {
+  @apply relative z-10 m-0 text-center font-display text-[30px] leading-[1.3] font-normal text-white capitalize;
+}
+
+.about-us-overview-title-line,
+.about-us-overview-title-mark {
+  @apply block;
+}
+
+.about-us-overview-title-mark {
+  @apply relative mx-auto w-fit pb-[0.22em] italic;
+}
+
+.about-us-overview-underline {
+  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-mist;
+}
+
+.about-us-overview-underline path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.about-us-overview-text {
+  @apply relative z-10 m-0 mt-4 text-center font-body text-[17px] leading-[1.5] font-normal text-white/78;
+}
+
+.about-us-overview-mission {
+  @apply rounded-[30px] p-0.5;
+  background-image: linear-gradient(230deg, #afc2f6 0%, #0a1329 30%);
+}
+
+.about-us-overview-mission-body {
+  @apply flex flex-col gap-4 rounded-[28px] bg-ink p-[35px];
+}
+
+.about-us-overview-mission-title {
+  @apply m-0 font-display text-[25px] leading-[1.3] font-normal text-white;
+}
+
+.about-us-overview-mission-text {
+  @apply m-0 font-body text-[17px] leading-[1.5] font-normal text-white/83;
+}
+
+.about-us-overview-values {
+  @apply flex flex-col gap-[25px];
+}
+
+.about-us-overview-values-title {
+  @apply m-0 text-center font-display text-[25px] leading-[1.3] font-normal text-white;
+}
+
+.about-us-overview-grid {
+  @apply grid grid-cols-1 gap-[30px];
+}
+
+.about-us-overview-card {
+  @apply overflow-hidden rounded-[30px] p-0.5;
+  background-image: linear-gradient(230deg, #afc2f6 0%, #0a1329 30%);
+}
+
+.about-us-overview-card-body {
+  @apply flex h-full min-h-[220px] flex-col justify-between gap-[30px] rounded-[28px] bg-ink p-[35px];
+}
+
+.about-us-overview-card-index {
+  @apply font-display text-[40px] leading-none font-normal text-mist/40;
+}
+
+.about-us-overview-card-copy {
+  @apply flex flex-col gap-2.5;
+}
+
+.about-us-overview-card-title {
+  @apply m-0 font-display text-[22px] leading-[1.3] font-normal text-white;
+}
+
+.about-us-overview-card-text {
+  @apply m-0 font-body text-[16px] leading-[1.5] font-normal text-white/78;
+}
+
+@media (min-width: 768px) {
+  .about-us-overview-inner {
+    @apply gap-[45px];
+  }
+
+  .about-us-overview-kicker {
+    @apply text-[80px];
+  }
+
+  .about-us-overview-title {
+    @apply text-[35px];
+  }
+
+  .about-us-overview-mission-body {
+    @apply flex-row items-center gap-10;
+  }
+
+  .about-us-overview-mission-title {
+    @apply w-[240px] shrink-0 text-[30px];
+  }
+
+  .about-us-overview-values-title {
+    @apply text-[30px];
+  }
+}
+
+@media (min-width: 1025px) {
+  .about-us-overview {
+    background-attachment: fixed;
+  }
+
+  .about-us-overview-inner {
+    @apply py-[100px];
+  }
+
+  .about-us-overview-kicker {
+    @apply text-[200px];
+  }
+
+  .about-us-overview-title {
+    @apply text-[70px];
+  }
+
+  .about-us-overview-mission-title {
+    @apply text-[40px];
+  }
+
+  .about-us-overview-values-title {
+    @apply text-[40px];
+  }
+
+  .about-us-overview-grid {
+    @apply grid-cols-3;
+  }
+
+  .about-us-overview-card-index {
+    @apply text-[55px];
+  }
+
+  .about-us-overview-card-title {
+    @apply text-[25px];
+  }
+}

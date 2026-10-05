@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #050915;
+  --color-join: #1d52e5;
+  --color-join-hover: #1e387b;
+  --color-menu: #0a1329;
+  --color-menu-link: #f9fafe;
+  --font-display: "Anton", sans-serif;
+  --font-hero: "Oswald", sans-serif;
+  --font-tagline: "Montserrat", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --color-mist: #afc2f6;
+}
+
+:root {
+  /* ========================================
+     BRAND COLORS
+  ======================================== */
+
+  --primary: #1850e0;          /* Main electric blue */
+  --primary-light: #3b6cff;    /* Hover / lighter blue */
+  --primary-dark: #1239a8;     /* Dark blue */
+
+  --secondary: #6c3eac;        /* Purple */
+  --secondary-light: #8b5cf6;  /* Bright purple */
+  --secondary-dark: #402080;   /* Dark purple */
+
+
+  /* ========================================
+     BACKGROUNDS
+  ======================================== */
+
+  --bg-main: #050915;          /* Main page background */
+  --bg-section: #060b19;       /* Alternate section */
+  --bg-section-dark: #040711;  /* Darker section */
+
+  --bg-card: #081029;          /* Cards */
+  --bg-card-hover: #0b1435;    /* Card hover */
+
+  --bg-surface: #0d1630;       /* Small surfaces / boxes */
+  --bg-overlay: rgba(5, 9, 21, 0.85);
+
+
+  /* ========================================
+     TEXT
+  ======================================== */
+
+  --text-primary: #f9f5f3;     /* Main white text */
+  --text-secondary: #b6b9be;   /* Paragraphs / secondary text */
+  --text-muted: #7e7379;       /* Muted text */
+  --text-dark: #1f232c;        /* Dark text if needed */
+
+
+  /* ========================================
+     BORDERS
+  ======================================== */
+
+  --border-primary: #1f3160;   /* Main card borders */
+  --border-secondary: #283868; /* Lighter border */
+  --border-muted: #182348;     /* Very subtle border */
+
+  --border-blue: #1850e0;
+  --border-purple: #603090;
+
+
+  /* ========================================
+     GLOWS
+  ======================================== */
+
+  --glow-blue: rgba(24, 80, 224, 0.45);
+  --glow-purple: rgba(108, 62, 172, 0.45);
+
+  --glow-blue-strong: rgba(24, 80, 224, 0.7);
+  --glow-purple-strong: rgba(108, 62, 172, 0.7);
+
+
+  /* ========================================
+     GRADIENTS
+  ======================================== */
+
+  --gradient-primary:
+    linear-gradient(135deg, #1850e0, #3b6cff);
+
+  --gradient-purple:
+    linear-gradient(135deg, #402080, #8b5cf6);
+
+  --gradient-brand:
+    linear-gradient(135deg, #1850e0, #6c3eac);
+
+  --gradient-dark:
+    linear-gradient(180deg, #050915 0%, #081029 100%);
+
+
+  /* ========================================
+     SPECIAL / DECORATIVE
+  ======================================== */
+
+  --grid-color: rgba(31, 49, 96, 0.35);
+  --shine-white: rgba(249, 245, 243, 0.08);
+  --overlay-dark: rgba(5, 9, 21, 0.65);
+}

@@ -1,0 +1,5 @@
+@reference "../index.css";
+
+.services {
+  @apply bg-ink;
+}

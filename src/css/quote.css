@@ -1,0 +1,29 @@
+@reference "../index.css";
+
+.quote-request-select-optional:has(option[value=""]:checked) {
+  @apply text-white/40;
+}
+
+.quote-request-color {
+  @apply flex items-center gap-4 rounded-[15px] border border-white/10 bg-menu/75 px-5 py-3 focus-within:border-join focus-within:ring-2 focus-within:ring-join/30;
+}
+
+.quote-request-color-input {
+  @apply h-10 w-14 shrink-0 cursor-pointer appearance-none rounded-[10px] border-0 bg-transparent p-0 outline-none;
+}
+
+.quote-request-color-input::-webkit-color-swatch-wrapper {
+  @apply p-0;
+}
+
+.quote-request-color-input::-webkit-color-swatch {
+  @apply rounded-[10px] border border-white/20;
+}
+
+.quote-request-color-input::-moz-color-swatch {
+  @apply rounded-[10px] border border-white/20;
+}
+
+.quote-request-color-value {
+  @apply font-mono text-[14px] leading-[1.4] tracking-[0.5px] text-white/70 uppercase;
+}
