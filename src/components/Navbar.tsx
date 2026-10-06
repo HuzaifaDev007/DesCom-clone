@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router'
+import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import logo from '../assets/DESCOM_VECTOR.svg'
 import { useNavbarMenu } from '../hooks/useNavbarMenu'
 
@@ -21,8 +22,14 @@ export function Navbar() {
   useEffect(() => {
     if (!menuOpen) return
 
+    const smoother = ScrollSmoother.get()
     const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
+
+    if (smoother) {
+      smoother.paused(true)
+    } else {
+      document.body.style.overflow = 'hidden'
+    }
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') closeMenu()
@@ -37,6 +44,7 @@ export function Navbar() {
     desktop.addEventListener('change', onViewport)
 
     return () => {
+      smoother?.paused(false)
       document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', onKeyDown)
       desktop.removeEventListener('change', onViewport)

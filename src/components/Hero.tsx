@@ -6,25 +6,30 @@ export function Hero() {
 
   return (
     <section ref={ref} className="home-hero" aria-label="DesCom">
-      <video
-        className="home-hero-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden="true"
-      >
-        <source src={marsVideo} type="video/mp4" />
-      </video>
+      <div className="home-hero-planet" aria-hidden="true">
+        <video
+          className="home-hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src={marsVideo} type="video/mp4" />
+        </video>
+      </div>
       <div className="home-hero-copy">
-        <h1 className="home-hero-title">
-          <span className="home-hero-title-text">DesCom</span>
-        </h1>
-        <p className="home-hero-tagline">
-          Protecting Your Future,
-          <br />
-          Securing Your Peace of Mind
-        </p>
+        <div className="home-hero-title-mask">
+          <h1 className="home-hero-title">
+            <span className="home-hero-title-text">DesCom</span>
+          </h1>
+        </div>
+        <div className="home-hero-tagline-mask">
+          <p className="home-hero-tagline">
+            Protecting Your Future,
+            <br />
+            Securing Your Peace of Mind
+          </p>
+        </div>
       </div>
     </section>
   )

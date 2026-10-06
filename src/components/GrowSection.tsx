@@ -1,6 +1,8 @@
 import { Link } from 'react-router'
 import officePhoto from '../assets/growSection/office.webp'
 import torus from '../assets/growSection/torus.png'
+import { AboutTitleMotion } from './AboutTitleMotion'
+import { HighlightUnderline } from './HighlightUnderline'
 
 export function GrowSection() {
   return (
@@ -16,22 +18,17 @@ export function GrowSection() {
                   alt="DesCom advisors collaborating in the office"
                 />
                 <div className="home-grow-copy">
-                  <h2 className="home-grow-title" id="home-grow-title">
+                  <AboutTitleMotion
+                    className="home-grow-title"
+                    id="home-grow-title"
+                  >
                     <span className="home-grow-title-line">
                       Let Us Help You Find
                     </span>
-                    <span className="home-grow-title-mark">
+                    <HighlightUnderline className="home-grow-title-mark">
                       The Right Coverage.
-                      <svg
-                        className="home-grow-underline"
-                        viewBox="0 115 500 40"
-                        preserveAspectRatio="none"
-                        aria-hidden="true"
-                      >
-                        <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.8-197.1,9" />
-                      </svg>
-                    </span>
-                  </h2>
+                    </HighlightUnderline>
+                  </AboutTitleMotion>
                   <p className="home-grow-text">
                     Expert solutions, personal service, and peace of mind —
                     whether you need coverage for your family or want to grow

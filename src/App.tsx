@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router'
 import { Footer } from './components/Footer'
 import { Navbar } from './components/Navbar'
+import { SmoothScroll } from './components/SmoothScroll'
 import './css/shared.css'
 import { AboutUsPage } from './pages/AboutUsPage'
 import { ContactPage } from './pages/ContactPage'
@@ -14,21 +15,23 @@ import { ServicesPage } from './pages/ServicesPage'
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="relative min-h-screen bg-zinc-50 text-zinc-900">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about-us" element={<AboutUsPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/join-our-agency" element={<JoinUsPage />} />
-          <Route path="/join-us" element={<JoinUsPage />} />
-          <Route path="/insurance-lead-generation" element={<LeadGenerationPage />} />
-          <Route path="/faq" element={<FaqPage />} />
-          <Route path="/contact-us" element={<ContactPage />} />
-          <Route path="/quote" element={<QuotePage />} />
-        </Routes>
-        <Footer />
-      </div>
+      <SmoothScroll>
+        <div className="relative min-h-screen bg-zinc-50 text-zinc-900">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about-us" element={<AboutUsPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/join-our-agency" element={<JoinUsPage />} />
+            <Route path="/join-us" element={<JoinUsPage />} />
+            <Route path="/insurance-lead-generation" element={<LeadGenerationPage />} />
+            <Route path="/faq" element={<FaqPage />} />
+            <Route path="/contact-us" element={<ContactPage />} />
+            <Route path="/quote" element={<QuotePage />} />
+          </Routes>
+          <Footer />
+        </div>
+      </SmoothScroll>
     </BrowserRouter>
   )
 }

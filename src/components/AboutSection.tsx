@@ -1,4 +1,8 @@
 import teamPhoto from '../assets/career-team.jpg'
+import { useAboutSectionReveal } from '../hooks/useAboutSectionReveal'
+import { AboutTitleMotion } from './AboutTitleMotion'
+import { BackgroundScrollMotion } from './BackgroundScrollMotion'
+import { HighlightUnderline } from './HighlightUnderline'
 
 const focusAreas = [
   'Life Insurance & Final Expense',
@@ -7,37 +11,35 @@ const focusAreas = [
 ]
 
 export function AboutSection() {
+  const { ref } = useAboutSectionReveal()
+
   return (
-    <section className="home-about" aria-labelledby="home-about-title">
+    <section
+      ref={ref}
+      className="home-about"
+      aria-labelledby="home-about-title"
+    >
       <div className="home-about-photo">
-        <img
-          className="home-about-photo-image"
-          src={teamPhoto}
-          alt="DesCom team members seated together in the office"
-        />
+        <BackgroundScrollMotion triggerRef={ref} speed={6}>
+          <img
+            className="home-about-photo-image"
+            src={teamPhoto}
+            alt="DesCom team members seated together in the office"
+          />
+        </BackgroundScrollMotion>
       </div>
       <div className="home-about-panel">
         <div className="home-about-copy">
-          <p className="home-about-kicker">About</p>
-          <h2 className="home-about-title" id="home-about-title">
+          <p className="home-about-kicker" aria-hidden="true">
+            About
+          </p>
+          
+          <AboutTitleMotion>
             Your Trusted Partner
-            <span className="home-about-highlight">
+            <HighlightUnderline className="home-about-highlight">
               In Insurance
-              <svg
-                className="home-about-underline"
-                viewBox="0 0 220 18"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 11C36 4 62 16 100 9s62-8 116 3"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-          </h2>
+            </HighlightUnderline>
+          </AboutTitleMotion>
           <p className="home-about-text">
             At DesCom, we understand that navigating insurance can be complex.
             That&apos;s why we simplify the process and provide clear,

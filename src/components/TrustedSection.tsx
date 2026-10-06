@@ -1,13 +1,31 @@
+import { useScrollSlideReveal } from '../hooks/useScrollSlideReveal'
+import { HighlightUnderline } from './HighlightUnderline'
+import { TrustedCardsMotion } from './TrustedCardsMotion'
+
 const stats = [
-  { value: 'Life', label: 'Secure Family Protection' },
-  { value: 'Health', label: 'Coverage Built Around You' },
-  { value: '8+', label: 'Trusted Carrier Partners' },
-  { value: '100%', label: 'Personalized Plan Focus' },
+  { value: 'Life', label: 'Secure Family Protection', enter: 'bottom' },
+  { value: 'Health', label: 'Coverage Built Around You', enter: 'top' },
+  { value: '8+', label: 'Trusted Carrier Partners', enter: 'bottom' },
+  { value: '100%', label: 'Personalized Plan Focus', enter: undefined },
 ] as const
 
 export function TrustedSection() {
+  const { ref } = useScrollSlideReveal({
+    target: '.home-trusted-kicker',
+    start: '20% bottom',
+    end: '70% bottom',
+    // Centered watermark: rest at -50/-50, slide in from 10% further left
+    xPercent: -60,
+    xPercentTo: -50,
+    yPercent: -50,
+  })
+
   return (
-    <section className="home-trusted" aria-labelledby="home-trusted-title">
+    <section
+      ref={ref}
+      className="home-trusted"
+      aria-labelledby="home-trusted-title"
+    >
       <div className="home-trusted-glow">
         <div className="home-trusted-inner">
           <div className="home-trusted-intro">
@@ -17,17 +35,9 @@ export function TrustedSection() {
               </p>
               <h2 className="home-trusted-title" id="home-trusted-title">
                 <span className="home-trusted-title-line">Trusted By Families.</span>
-                <span className="home-trusted-title-mark">
+                <HighlightUnderline className="home-trusted-title-mark">
                   Powered By Expertise.
-                  <svg
-                    className="home-trusted-underline"
-                    viewBox="0 115 500 40"
-                    preserveAspectRatio="none"
-                    aria-hidden="true"
-                  >
-                    <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.8-197.1,9" />
-                  </svg>
-                </span>
+                </HighlightUnderline>
               </h2>
             </div>
             <p className="home-trusted-text">
@@ -35,16 +45,20 @@ export function TrustedSection() {
               so you can protect what matters with confidence.
             </p>
           </div>
-          <div className="home-trusted-grid">
+          <TrustedCardsMotion>
             {stats.map((stat) => (
-              <article key={stat.label} className="home-trusted-card">
+              <article
+                key={stat.label}
+                className="home-trusted-card"
+                data-trusted-enter={stat.enter}
+              >
                 <div className="home-trusted-card-body">
                   <h3 className="home-trusted-card-label">{stat.label}</h3>
                   <p className="home-trusted-card-value">{stat.value}</p>
                 </div>
               </article>
             ))}
-          </div>
+          </TrustedCardsMotion>
         </div>
       </div>
     </section>

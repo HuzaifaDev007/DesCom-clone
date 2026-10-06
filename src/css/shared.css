@@ -4,6 +4,11 @@
   @apply bg-ink;
 }
 
+.background-scroll-motion {
+  @apply pointer-events-none absolute top-0 left-0 w-full;
+  height: calc(100% + var(--background-scroll-extra, 60%));
+}
+
 .navbar {
   @apply fixed inset-x-0 top-0 z-[99] bg-transparent;
 }
@@ -816,4 +821,23 @@
   .faq-section-question-text {
     @apply text-[25px];
   }
+}
+
+.highlight-underline {
+  @apply relative;
+}
+
+.highlight-underline-mark {
+  @apply pointer-events-none absolute top-1/2 left-1/2 overflow-visible text-mist;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  transform: translate(-50%, -50%);
+}
+
+.highlight-underline-path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

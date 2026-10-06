@@ -8,16 +8,31 @@
   @apply relative isolate flex h-svh min-h-112 items-start justify-center overflow-hidden bg-black pt-[6.75rem];
 }
 
+.home-hero-planet {
+  @apply pointer-events-none absolute inset-x-0 w-full;
+  top: -24%;
+  height: 146%;
+}
+
 .home-hero-video {
-  @apply pointer-events-none absolute bottom-0 h-[132%] w-full object-cover;
+  @apply block h-full w-full object-cover;
+  object-position: center 76%;
 }
 
 .home-hero-copy {
   @apply relative z-10 flex w-full flex-col items-center px-4 pt-8 text-center;
 }
 
+.home-hero-title-mask {
+  @apply w-full overflow-hidden;
+}
+
 .home-hero-title {
-  @apply w-full bg-clip-text text-center font-hero text-[6.1rem] leading-[0.8] font-bold text-transparent uppercase;
+  @apply w-full text-center font-hero text-[clamp(3.5rem,18vw,5.75rem)] leading-[0.9] font-bold uppercase;
+}
+
+.home-hero-title-text {
+  @apply inline-block bg-clip-text text-transparent;
   background-image: linear-gradient(
     180deg,
     #ffffff 0%,
@@ -29,8 +44,32 @@
   );
 }
 
+.home-hero-title-text.is-split {
+  background-image: none;
+  color: inherit;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+}
+
+.home-hero-char {
+  @apply inline-block bg-clip-text text-transparent;
+  background-image: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 52%,
+    #d5dee8 64%,
+    #3d7eaa 76%,
+    #0c5a86 88%,
+    #0a6d90 100%
+  );
+}
+
+.home-hero-tagline-mask {
+  @apply overflow-hidden;
+}
+
 .home-hero-tagline {
-  @apply mt-3 font-tagline text-[0.72rem] leading-relaxed font-semibold tracking-[0.32em] text-white uppercase;
+  @apply mt-4 font-tagline text-sm leading-[1.6] font-semibold tracking-[0.08em] text-white uppercase;
 }
 
 @media (min-width: 768px) {
@@ -56,9 +95,13 @@
     @apply pt-[8.75rem];
   }
 
+  .home-hero-planet {
+    top: -18%;
+    height: 158%;
+  }
+
   .home-hero-video {
-    @apply inset-0 h-full;
-    object-position: center 78%;
+    object-position: center 70%;
   }
 
   .home-hero-copy {
@@ -75,7 +118,7 @@
 }
 
 .home-about {
-  @apply relative flex flex-col bg-ink;
+  @apply relative flex flex-col overflow-x-hidden bg-ink;
   background-image: radial-gradient(at top right, #1d52e529 0%, #050915 35%);
 }
 
@@ -108,23 +151,19 @@
 }
 
 .home-about-kicker {
-  @apply mb-[-28px] font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] text-white/10 uppercase;
+  @apply pointer-events-none relative z-0 m-0 mb-[-28px] font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] text-white/15 uppercase;
 }
 
 .home-about-title {
-  @apply relative z-10 mb-5 font-display text-[30px] leading-[1.3] font-normal text-white capitalize;
+  @apply relative z-10 mb-5 font-display text-[2.125rem] leading-[1.12] font-normal text-white capitalize;
 }
 
 .home-about-highlight {
-  @apply relative block w-fit pr-2 font-display leading-[1.3] font-normal text-white italic;
-}
-
-.home-about-underline {
-  @apply pointer-events-none absolute -bottom-1 left-0 h-3.5 w-full text-mist;
+  @apply relative block w-fit font-display leading-[1.3] font-normal text-white italic;
 }
 
 .home-about-text {
-  @apply relative z-10 mb-5 font-body text-[17px] leading-[1.5] font-normal text-white/83;
+  @apply relative z-10 mb-6 font-body text-base leading-[1.7] font-normal text-pretty text-white/83;
 }
 
 .home-about-bottom {
@@ -137,11 +176,11 @@
 }
 
 .home-about-card-title {
-  @apply mb-2.5 font-display text-[18px] leading-[1.3] font-normal text-white;
+  @apply mb-3 font-display text-[1.375rem] leading-[1.2] font-normal text-white;
 }
 
 .home-about-card-text {
-  @apply font-body text-[17px] leading-[1.5] font-normal text-white/83;
+  @apply font-body text-base leading-[1.7] font-normal text-pretty text-white/83;
 }
 
 .home-about-roles {
@@ -149,7 +188,7 @@
 }
 
 .home-about-role {
-  @apply flex items-start gap-2.5 font-body text-[17px] leading-[1.5] font-normal text-white/78;
+  @apply flex items-start gap-2.5 font-body text-base leading-[1.6] font-normal text-white/78;
 }
 
 .home-about-role-icon {
@@ -163,7 +202,7 @@
 
 @media (min-width: 768px) {
   .home-about-kicker {
-    @apply text-[80px];
+    @apply mb-[-36px] text-[80px];
   }
 
   .home-about-title {
@@ -193,7 +232,7 @@
   }
 
   .home-about-kicker {
-    @apply -mt-[35px] mb-[76px] text-[90px];
+    @apply -mt-[35px] mb-[-65px] text-[90px];
   }
 
   .home-about-title {
@@ -265,11 +304,13 @@
 }
 
 .home-performance-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[58%] font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  /* Fallback until GSAP owns the transform for the slide reveal */
+  /* transform: translate(-50%, -50%); */
 }
 
 .home-performance-title {
-  @apply relative z-10 mx-auto w-full max-w-[900px] text-center font-display text-[30px] leading-[1.3] font-normal text-white capitalize;
+  @apply relative z-10 mx-auto w-full max-w-[900px] text-center font-display text-[2.125rem] leading-[1.12] font-normal text-white capitalize;
 }
 
 .home-performance-title-line,
@@ -278,19 +319,7 @@
 }
 
 .home-performance-title-mark {
-  @apply relative mx-auto w-fit pb-[0.22em];
-}
-
-.home-performance-underline {
-  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-mist;
-}
-
-.home-performance-underline path {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  @apply relative mx-auto w-fit max-w-full;
 }
 
 .home-performance-grid {
@@ -377,11 +406,11 @@
 }
 
 .home-performance-card-title {
-  @apply mb-2.5 font-display text-[18px] leading-[1.3] font-normal text-white;
+  @apply mb-3 font-display text-[1.375rem] leading-[1.2] font-normal text-white;
 }
 
 .home-performance-card-text {
-  @apply font-body text-[17px] leading-[1.5] font-normal text-white/78;
+  @apply font-body text-base leading-[1.7] font-normal text-pretty text-white/78;
 }
 
 .home-performance-photo {
@@ -443,6 +472,10 @@
     @apply py-[100px];
   }
 
+  .home-performance-heading {
+    @apply mb-[80px];
+  }
+
   .home-performance-kicker {
     @apply text-[200px];
   }
@@ -502,11 +535,13 @@
 }
 
 .home-trusted-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  /* Fallback until GSAP owns the transform for the slide reveal */
+  transform: translate(-50%, -50%);
 }
 
 .home-trusted-title {
-  @apply relative z-10 text-center font-display text-[30px] leading-[1.3] font-normal text-white capitalize;
+  @apply relative z-10 text-center font-display text-[2.125rem] leading-[1.12] font-normal text-white capitalize;
 }
 
 .home-trusted-title-line,
@@ -515,23 +550,11 @@
 }
 
 .home-trusted-title-mark {
-  @apply relative mx-auto w-fit pb-[0.22em];
-}
-
-.home-trusted-underline {
-  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-mist;
-}
-
-.home-trusted-underline path {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  @apply relative mx-auto w-fit max-w-full;
 }
 
 .home-trusted-text {
-  @apply relative z-10 mt-4 text-center font-body text-[17px] leading-[1.5] font-normal text-white/78;
+  @apply relative z-10 mt-4 text-center font-body text-base leading-[1.7] font-normal text-pretty text-white/78;
 }
 
 .home-trusted-grid {
@@ -548,11 +571,11 @@
 }
 
 .home-trusted-card-label {
-  @apply absolute top-[30px] right-0 left-0 px-3 text-center font-display text-[18px] leading-[1.3] font-normal whitespace-nowrap text-white;
+  @apply absolute top-[30px] right-0 left-0 px-4 text-center font-body text-sm leading-[1.45] font-medium text-balance text-white/80;
 }
 
 .home-trusted-card-value {
-  @apply font-display text-[30px] leading-[1.3] font-normal text-white;
+  @apply font-display text-[2.75rem] leading-none font-normal text-white;
 }
 
 @media (min-width: 768px) {
@@ -574,7 +597,7 @@
   }
 
   .home-trusted-card-label {
-    @apply text-[17px];
+    @apply font-display text-[17px] leading-[1.3] font-normal whitespace-nowrap text-white;
   }
 }
 
@@ -639,27 +662,17 @@
 }
 
 .home-campaigns-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[58%] font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[50px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  /* Fallback until GSAP owns the transform for the slide reveal */
+  /* transform: translate(-50%, -50%); */
 }
 
 .home-campaigns-title {
-  @apply relative z-10 text-center font-display text-[30px] leading-[1.3] font-normal text-white capitalize;
+  @apply relative z-10 text-center font-display text-[2.125rem] leading-[1.12] font-normal text-white capitalize;
 }
 
 .home-campaigns-title-mark {
-  @apply relative inline-block pb-[0.22em] italic;
-}
-
-.home-campaigns-underline {
-  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-mist;
-}
-
-.home-campaigns-underline path {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  @apply relative inline-block italic;
 }
 
 .home-campaigns-orb {
@@ -682,7 +695,7 @@
 }
 
 .home-campaigns-card-title {
-  @apply relative z-10 w-full text-left font-display text-[18px] leading-[1.3] font-normal text-white;
+  @apply relative z-10 w-full text-left font-display text-[1.5rem] leading-[1.15] font-normal text-balance text-white;
 }
 
 @media (min-width: 768px) {
@@ -799,7 +812,7 @@
 }
 
 .home-grow-title {
-  @apply font-display text-[30px] leading-[1.3] font-normal text-white capitalize;
+  @apply w-full font-display text-[2rem] leading-[1.12] font-normal text-white capitalize;
 }
 
 .home-grow-title-line {
@@ -807,23 +820,11 @@
 }
 
 .home-grow-title-mark {
-  @apply relative mx-auto block w-fit pb-[0.22em];
-}
-
-.home-grow-underline {
-  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-mist;
-}
-
-.home-grow-underline path {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  @apply relative mx-auto block w-fit max-w-full;
 }
 
 .home-grow-text {
-  @apply m-0 font-body text-[17px] leading-[1.5] font-normal text-white;
+  @apply m-0 font-body text-base leading-[1.7] font-normal text-pretty text-white;
 }
 
 .home-grow-cta {
