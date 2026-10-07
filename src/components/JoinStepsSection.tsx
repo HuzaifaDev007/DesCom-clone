@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
+import { useJoinStepsReveal } from '../hooks/useJoinStepsReveal'
 import { formatIndex } from '../lib/formatIndex'
+import { AboutTitleMotion } from './AboutTitleMotion'
 
 type Step = {
   title: string
@@ -38,14 +40,16 @@ export function JoinStepsSection({
   steps = defaultSteps,
   children,
 }: JoinStepsSectionProps) {
+  const { ref } = useJoinStepsReveal()
+
   return (
-    <section className="join-us-steps" aria-labelledby={id}>
+    <section ref={ref} className="join-us-steps" aria-labelledby={id}>
       <div className="join-us-steps-inner">
         <div className="join-us-steps-heading">
           <p className="join-us-steps-kicker" aria-hidden="true">
             {kicker}
           </p>
-          <h2 className="join-us-steps-title" id={id}>
+          <AboutTitleMotion className="join-us-steps-title" id={id}>
             <span className="join-us-steps-title-line">{title}</span>
             <span className="join-us-steps-title-mark">
               {titleMark}
@@ -58,20 +62,23 @@ export function JoinStepsSection({
                 <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.8-197.1,9" />
               </svg>
             </span>
-          </h2>
+          </AboutTitleMotion>
         </div>
 
-        <ol className="join-us-steps-list">
-          {steps.map((step, index) => (
-            <li key={step.title} className="join-us-steps-item">
-              <span className="join-us-steps-number">{formatIndex(index)}</span>
-              <div className="join-us-steps-copy">
-                <h3 className="join-us-steps-item-title">{step.title}</h3>
-                <p className="join-us-steps-item-text">{step.text}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <div className="join-us-steps-track">
+          <span className="join-us-steps-line" aria-hidden="true" />
+          <ol className="join-us-steps-list">
+            {steps.map((step, index) => (
+              <li key={step.title} className="join-us-steps-item">
+                <span className="join-us-steps-number">{formatIndex(index)}</span>
+                <div className="join-us-steps-copy">
+                  <h3 className="join-us-steps-item-title">{step.title}</h3>
+                  <p className="join-us-steps-item-text">{step.text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
 
         {children}
       </div>

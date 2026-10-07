@@ -1,4 +1,8 @@
 import advisorPhoto from '../assets/servicesFeature/gallery-2.webp'
+import { useJoinCriteriaReveal } from '../hooks/useJoinCriteriaReveal'
+import { AboutTitleMotion } from './AboutTitleMotion'
+import { HighlightUnderline } from './HighlightUnderline'
+import { BackgroundScrollMotion } from './BackgroundScrollMotion'
 
 const criteria = [
   'Self-motivated individuals with a strong entrepreneurial spirit.',
@@ -9,14 +13,18 @@ const criteria = [
 ]
 
 export function JoinCriteriaSection() {
+  const { ref } = useJoinCriteriaReveal()
+
   return (
-    <section className="join-us-criteria" aria-labelledby="join-us-criteria-title">
+    <section ref={ref} className="join-us-criteria" aria-labelledby="join-us-criteria-title">
       <div className="join-us-criteria-photo">
-        <img
-          className="join-us-criteria-photo-image"
-          src={advisorPhoto}
-          alt="DesCom advisor wearing a headset in the office"
-        />
+        <BackgroundScrollMotion>
+          <img
+            className="join-us-criteria-photo-image"
+            src={advisorPhoto}
+            alt="DesCom advisor wearing a headset in the office"
+          />
+        </BackgroundScrollMotion>
       </div>
 
       <div className="join-us-criteria-panel">
@@ -24,25 +32,12 @@ export function JoinCriteriaSection() {
           <p className="join-us-criteria-kicker" aria-hidden="true">
             Agents
           </p>
-          <h2 className="join-us-criteria-title" id="join-us-criteria-title">
+          <AboutTitleMotion className="join-us-criteria-title" id="join-us-criteria-title">
             Who We&apos;re
-            <span className="join-us-criteria-highlight">
+            <HighlightUnderline className="join-us-criteria-highlight">
               Looking For
-              <svg
-                className="join-us-criteria-underline"
-                viewBox="0 0 220 18"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 11C36 4 62 16 100 9s62-8 116 3"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-          </h2>
+            </HighlightUnderline>
+          </AboutTitleMotion>
 
           <ul className="join-us-criteria-list">
             {criteria.map((item) => (

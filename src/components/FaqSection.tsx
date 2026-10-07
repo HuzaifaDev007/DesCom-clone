@@ -1,3 +1,7 @@
+import { useFaqAccordion } from '../hooks/useFaqAccordion'
+import { useFaqSectionReveal } from '../hooks/useFaqSectionReveal'
+import { AboutTitleMotion } from './AboutTitleMotion'
+
 type FaqItem = {
   question: string
   answer: string
@@ -13,15 +17,17 @@ type FaqSectionProps = {
 
 export function FaqSection({ id, kicker, title, titleMark, items }: FaqSectionProps) {
   const titleId = `${id}-title`
+  const { ref } = useFaqSectionReveal()
+  useFaqAccordion(ref)
 
   return (
-    <section className="faq-section" aria-labelledby={titleId}>
+    <section ref={ref} className="faq-section" aria-labelledby={titleId}>
       <div className="faq-section-inner">
         <div className="faq-section-heading">
           <p className="faq-section-kicker" aria-hidden="true">
             {kicker}
           </p>
-          <h2 className="faq-section-title" id={titleId}>
+          <AboutTitleMotion className="faq-section-title" id={titleId}>
             <span className="faq-section-title-line">{title}</span>
             <span className="faq-section-title-mark">
               {titleMark}
@@ -34,7 +40,7 @@ export function FaqSection({ id, kicker, title, titleMark, items }: FaqSectionPr
                 <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.8-197.1,9" />
               </svg>
             </span>
-          </h2>
+          </AboutTitleMotion>
         </div>
 
         <div className="faq-section-list">
@@ -42,9 +48,13 @@ export function FaqSection({ id, kicker, title, titleMark, items }: FaqSectionPr
             <details key={item.question} className="faq-section-item">
               <summary className="faq-section-question">
                 <span className="faq-section-question-text">{item.question}</span>
-                <span className="faq-section-icon" aria-hidden="true" />
+                <span className="faq-section-icon" aria-hidden="true">
+                  <span className="faq-section-icon-bar" />
+                </span>
               </summary>
-              <p className="faq-section-answer">{item.answer}</p>
+              <div className="faq-section-answer-panel">
+                <p className="faq-section-answer">{item.answer}</p>
+              </div>
             </details>
           ))}
         </div>

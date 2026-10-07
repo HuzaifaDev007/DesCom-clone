@@ -1,14 +1,19 @@
 import { Link } from 'react-router'
 import torus from '../assets/footer-torus.png'
+import { useJoinApplyReveal } from '../hooks/useJoinApplyReveal'
 import { useLeadInquiryForm } from '../hooks/useLeadInquiryForm'
 import { LEAD_TYPES } from '../lib/leadInquiry'
+import { AboutTitleMotion } from './AboutTitleMotion'
+import { HighlightUnderline } from './HighlightUnderline'
 
 export function LeadInquirySection() {
   const { values, status, handleChange, handleSubmit } = useLeadInquiryForm()
+  const { ref } = useJoinApplyReveal()
   const isSubmitting = status.type === 'submitting'
 
   return (
     <section
+      ref={ref}
       id="lead-form"
       className="join-us-apply lead-generation-inquiry"
       aria-labelledby="lead-generation-inquiry-title"
@@ -18,25 +23,12 @@ export function LeadInquirySection() {
           <p className="join-us-apply-kicker" aria-hidden="true">
             Inquire
           </p>
-          <h2 className="join-us-apply-title" id="lead-generation-inquiry-title">
+          <AboutTitleMotion className="join-us-apply-title" id="lead-generation-inquiry-title">
             Discuss Your
-            <span className="join-us-apply-highlight">
+            <HighlightUnderline className="join-us-apply-highlight">
               Lead Needs
-              <svg
-                className="join-us-apply-underline"
-                viewBox="0 0 220 18"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 11C36 4 62 16 100 9s62-8 116 3"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-          </h2>
+            </HighlightUnderline>
+          </AboutTitleMotion>
           <p className="join-us-apply-text">
             Tell us about your agency and the leads you are looking for. We will
             follow up to talk through availability and next steps.

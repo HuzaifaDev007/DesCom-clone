@@ -13,6 +13,8 @@ export function JoinUsPage() {
         kicker="Join Our Agency"
         title="Build Your Career"
         titleMark="With DesCom"
+        ctaLabel="Apply Now"
+        ctaHref="#apply"
       />
       <JoinBenefitsSection />
       <JoinCriteriaSection />

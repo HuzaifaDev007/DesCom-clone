@@ -107,8 +107,14 @@ export function useSmoothScroll() {
 
       if (smoother) {
         smoother.scrollTo(0, false)
-        ScrollTrigger.refresh()
-        return
+        // Delay past page-hook setup. Refreshing while nested contexts are
+        // still wiring up overflows Context.getTweens on SPA navigations.
+        const refresh = gsap.delayedCall(0.05, () => {
+          ScrollTrigger.refresh()
+        })
+        return () => {
+          refresh.kill()
+        }
       }
 
       window.scrollTo(0, 0)

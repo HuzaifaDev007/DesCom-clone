@@ -57,6 +57,8 @@ export function LeadGenerationPage() {
         kicker="Leads"
         title="Insurance Lead"
         titleMark="Generation"
+        ctaLabel="Discuss Your Lead Needs"
+        ctaHref="#lead-form"
       />
       <LeadMatchSection />
       <JoinStepsSection

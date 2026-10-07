@@ -1,5 +1,7 @@
 import teamPhoto from '../assets/servicesFeature/gallery-1.webp'
+import { useJoinBenefitsReveal } from '../hooks/useJoinBenefitsReveal'
 import { formatIndex } from '../lib/formatIndex'
+import { AboutTitleMotion } from './AboutTitleMotion'
 
 const featured = {
   title: 'Competitive Commissions & Recurring Income',
@@ -26,8 +28,10 @@ const benefits = [
 ]
 
 export function JoinBenefitsSection() {
+  const { ref } = useJoinBenefitsReveal()
+
   return (
-    <section className="join-us-benefits" aria-labelledby="join-us-benefits-title">
+    <section ref={ref} className="join-us-benefits" aria-labelledby="join-us-benefits-title">
       <div className="join-us-benefits-glow">
         <div className="join-us-benefits-inner">
           <div className="join-us-benefits-intro">
@@ -35,7 +39,7 @@ export function JoinBenefitsSection() {
               <p className="join-us-benefits-kicker" aria-hidden="true">
                 Benefits
               </p>
-              <h2 className="join-us-benefits-title" id="join-us-benefits-title">
+              <AboutTitleMotion className="join-us-benefits-title" id="join-us-benefits-title">
                 <span className="join-us-benefits-title-line">Why Partner</span>
                 <span className="join-us-benefits-title-mark">
                   With Us?
@@ -48,7 +52,7 @@ export function JoinBenefitsSection() {
                     <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.8-197.1,9" />
                   </svg>
                 </span>
-              </h2>
+              </AboutTitleMotion>
             </div>
             <p className="join-us-benefits-text">
               We invest in our agents because your success is our success.

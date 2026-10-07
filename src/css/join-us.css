@@ -103,7 +103,7 @@
   }
 
   .join-us-criteria-kicker {
-    @apply -mt-[35px] mb-[76px] text-[90px];
+    @apply -mt-[35px]  text-[90px];
   }
 
   .join-us-criteria-title {
@@ -157,7 +157,9 @@
 }
 
 .join-us-benefits-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 m-0 -translate-x-1/2 -translate-y-1/2 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 m-0 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  /* Fallback until GSAP owns the transform for the slide reveal */
+  transform: translate(-50%, -50%);
 }
 
 .join-us-benefits-title {
@@ -306,6 +308,7 @@
 
 .join-us-apply {
   @apply relative isolate overflow-hidden bg-ink px-[15px];
+  scroll-margin-top: 20px;
   background-image: url("../assets/performanceSection/grid.png");
   background-repeat: no-repeat;
   background-position: bottom left;
@@ -367,6 +370,10 @@
 
 .join-us-apply-fieldset {
   @apply m-0 border-0 p-0;
+}
+
+.join-us-apply-fieldset > .join-us-apply-label {
+  @apply mb-2.5;
 }
 
 .join-us-apply-label {
@@ -525,7 +532,9 @@
 }
 
 .join-us-steps-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 m-0 -translate-x-1/2 -translate-y-1/2 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 m-0 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  /* Fallback until GSAP owns the transform for the slide reveal */
+  /* transform: translate(-50%, -50%); */
 }
 
 .join-us-steps-title {
@@ -553,14 +562,17 @@
   stroke-linejoin: round;
 }
 
-.join-us-steps-list {
-  @apply relative m-0 flex list-none flex-col gap-[40px] p-0;
+.join-us-steps-track {
+  @apply relative;
 }
 
-.join-us-steps-list::before {
-  content: "";
+.join-us-steps-line {
   @apply pointer-events-none absolute top-[35px] bottom-[35px] left-[34px] w-0.5;
   background-image: linear-gradient(180deg, #1d52e5 0%, #afc2f6 50%, #1d52e5 100%);
+}
+
+.join-us-steps-list {
+  @apply relative m-0 flex list-none flex-col gap-[40px] p-0;
 }
 
 .join-us-steps-item {
@@ -611,7 +623,7 @@
     @apply grid grid-cols-3 gap-[50px];
   }
 
-  .join-us-steps-list::before {
+  .join-us-steps-line {
     @apply top-[45px] right-[calc(100%/6)] bottom-auto left-[calc(100%/6)] h-0.5 w-auto;
     background-image: linear-gradient(90deg, #1d52e5 0%, #afc2f6 50%, #1d52e5 100%);
   }

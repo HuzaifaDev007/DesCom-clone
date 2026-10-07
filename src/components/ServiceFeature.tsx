@@ -1,6 +1,8 @@
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import torus from '../assets/footer-torus.png'
+import { useServiceFeatureReveal } from '../hooks/useServiceFeatureReveal'
+import { AboutTitleMotion } from './AboutTitleMotion'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
@@ -32,9 +34,11 @@ export function ServiceFeature({
   reversed = false,
 }: ServiceFeatureProps) {
   const titleId = `service-feature-${watermark.toLowerCase().replace(/\s+/g, '-')}-title`
+  const { ref } = useServiceFeatureReveal(reversed)
 
   return (
     <section
+      ref={ref}
       className={reversed ? 'service-feature service-feature-reversed' : 'service-feature'}
       aria-labelledby={titleId}
     >
@@ -90,7 +94,7 @@ export function ServiceFeature({
           <p className="service-feature-watermark" aria-hidden="true">
             {watermark}
           </p>
-          <h2 className="service-feature-title" id={titleId}>
+          <AboutTitleMotion className="service-feature-title" id={titleId}>
             <span className="service-feature-title-plain">{title} </span>
             <span className="service-feature-title-mark">
               {titleMark}
@@ -103,7 +107,7 @@ export function ServiceFeature({
                 <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.8-197.1,9" />
               </svg>
             </span>
-          </h2>
+          </AboutTitleMotion>
           <p className="service-feature-text">{description}</p>
           <ul className="service-feature-list">
             {features.map((feature) => (

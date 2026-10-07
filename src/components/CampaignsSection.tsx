@@ -58,13 +58,27 @@ export function CampaignsSection() {
                 key={campaign.title}
                 className="home-campaigns-card"
                 data-campaigns-row={index < 3 ? 'top' : 'bottom'}
+                tabIndex={0}
               >
-                <img
-                  className="home-campaigns-card-image"
-                  src={campaign.image}
-                  alt=""
-                />
-                <h3 className="home-campaigns-card-title">{campaign.title}</h3>
+                <div className="home-campaigns-card-face home-campaigns-card-front">
+                  <img
+                    className="home-campaigns-card-image"
+                    src={campaign.image}
+                    alt=""
+                  />
+                  <h3 className="home-campaigns-card-title">{campaign.title}</h3>
+                </div>
+                <div
+                  className="home-campaigns-card-face home-campaigns-card-back"
+                  aria-hidden="true"
+                >
+                  <img
+                    className="home-campaigns-card-image"
+                    src={campaign.image}
+                    alt=""
+                  />
+                  <p className="home-campaigns-card-title">{campaign.title}</p>
+                </div>
               </article>
             ))}
           </CampaignsGridMotion>

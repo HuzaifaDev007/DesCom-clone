@@ -2,7 +2,9 @@ import type { ReactNode } from 'react'
 import { Link } from 'react-router'
 import torus from '../assets/footer-torus.png'
 import { useContactForm } from '../hooks/useContactForm'
+import { useContactSectionReveal } from '../hooks/useContactSectionReveal'
 import { CONTACT_REASONS } from '../lib/contactInquiry'
+import { AboutTitleMotion } from './AboutTitleMotion'
 
 type ContactMethod = {
   label: string
@@ -45,10 +47,12 @@ const contactMethods: ContactMethod[] = [
 
 export function ContactSection() {
   const { values, status, handleChange, handleSubmit } = useContactForm()
+  const { ref } = useContactSectionReveal()
   const isSubmitting = status.type === 'submitting'
 
   return (
     <section
+      ref={ref}
       className="join-us-apply contact-us-touch"
       aria-labelledby="contact-us-touch-title"
     >
@@ -57,7 +61,7 @@ export function ContactSection() {
           <p className="join-us-apply-kicker" aria-hidden="true">
             Contact
           </p>
-          <h2 className="join-us-apply-title" id="contact-us-touch-title">
+          <AboutTitleMotion className="join-us-apply-title" id="contact-us-touch-title">
             Get In
             <span className="join-us-apply-highlight">
               Touch
@@ -75,7 +79,7 @@ export function ContactSection() {
                 />
               </svg>
             </span>
-          </h2>
+          </AboutTitleMotion>
           <p className="join-us-apply-text">
             Whether you have a question about our services, need a quote, or
             require assistance with an existing policy, our team is ready to

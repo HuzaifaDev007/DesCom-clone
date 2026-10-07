@@ -1,37 +1,28 @@
 import torus from '../assets/footer-torus.png'
 import { useAgentApplicationForm } from '../hooks/useAgentApplicationForm'
+import { useJoinApplyReveal } from '../hooks/useJoinApplyReveal'
 import { US_STATES } from '../lib/agentApplication'
+import { AboutTitleMotion } from './AboutTitleMotion'
+import { HighlightUnderline } from './HighlightUnderline'
 
 export function JoinApplySection() {
   const { values, status, handleChange, handleSubmit } = useAgentApplicationForm()
+  const { ref } = useJoinApplyReveal()
   const isSubmitting = status.type === 'submitting'
 
   return (
-    <section id="apply" className="join-us-apply" aria-labelledby="join-us-apply-title">
+    <section ref={ref} id="apply" className="join-us-apply" aria-labelledby="join-us-apply-title">
       <div className="join-us-apply-inner">
         <div className="join-us-apply-intro">
           <p className="join-us-apply-kicker" aria-hidden="true">
             Apply
           </p>
-          <h2 className="join-us-apply-title" id="join-us-apply-title">
+          <AboutTitleMotion className="join-us-apply-title" id="join-us-apply-title">
             Apply To Join
-            <span className="join-us-apply-highlight">
+            <HighlightUnderline className="join-us-apply-highlight">
               Our Team
-              <svg
-                className="join-us-apply-underline"
-                viewBox="0 0 220 18"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 11C36 4 62 16 100 9s62-8 116 3"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-          </h2>
+            </HighlightUnderline>
+          </AboutTitleMotion>
           <p className="join-us-apply-text">
             Take the first step toward a rewarding career. Fill out the form
             below and our team will reach out.
