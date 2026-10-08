@@ -1,4 +1,3 @@
-import torus from '../assets/footer-torus.png'
 import { useQuoteRequestForm } from '../hooks/useQuoteRequestForm'
 import { CONTACT_TIMES, INSURANCE_TYPES } from '../lib/quoteRequest'
 
@@ -228,7 +227,6 @@ export function QuoteRequestSection() {
               </div>
             </form>
           </div>
-          <img className="join-us-apply-ring" src={torus} alt="" aria-hidden="true" />
         </div>
       </div>
     </section>

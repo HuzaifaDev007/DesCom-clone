@@ -255,7 +255,9 @@
 }
 
 .join-us-benefits-card-photo {
-  @apply pointer-events-none absolute inset-0 -z-10 size-full object-cover object-center;
+  @apply pointer-events-none absolute inset-0 -z-10 size-full object-cover;
+  /* Keep faces in frame — featured card is short/wide so default center crops heads */
+  object-position: center 22%;
 }
 
 .join-us-benefits-card-featured .join-us-benefits-card-body::before {

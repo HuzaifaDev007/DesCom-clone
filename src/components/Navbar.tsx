@@ -69,7 +69,9 @@ export function Navbar() {
                 key={link.to}
                 to={link.to}
                 end={link.end}
-                className="navbar-link"
+                className={({ isActive }) =>
+                  isActive ? 'navbar-link navbar-link-active' : 'navbar-link'
+                }
               >
                 {link.label}
               </NavLink>

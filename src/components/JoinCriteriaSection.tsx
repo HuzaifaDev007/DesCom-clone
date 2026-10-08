@@ -1,4 +1,4 @@
-import advisorPhoto from '../assets/servicesFeature/gallery-2.webp'
+import advisorPhoto from '../assets/servicesFeature/gallery-2.png'
 import { useJoinCriteriaReveal } from '../hooks/useJoinCriteriaReveal'
 import { AboutTitleMotion } from './AboutTitleMotion'
 import { HighlightUnderline } from './HighlightUnderline'

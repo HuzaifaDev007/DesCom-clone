@@ -32,7 +32,6 @@ export function usePageHeroReveal() {
         const title = root.querySelector('.page-hero-title')
         const cta = root.querySelector('.page-hero-cta')
         const underline = root.querySelector('.page-hero-underline path')
-        const ring = root.querySelector('.page-hero-ring')
         const orbs = root.querySelectorAll('.page-hero-orb')
         const line = root.querySelector('.page-hero-line')
         const desktop = window.matchMedia('(min-width: 1025px)').matches
@@ -42,7 +41,6 @@ export function usePageHeroReveal() {
         if (title) gsap.set(title, { y: titleTravel, autoAlpha: 0 })
         if (cta) gsap.set(cta, { y: 20, autoAlpha: 0 })
         if (underline) gsap.set(underline, { drawSVG: '0% 0%' })
-        if (ring) gsap.set(ring, { autoAlpha: 0 })
         if (orbs.length) gsap.set(orbs, { autoAlpha: 0, scale: 0.92 })
         if (line) gsap.set(line, { scaleX: 0, transformOrigin: 'left center' })
 
@@ -83,14 +81,6 @@ export function usePageHeroReveal() {
               cta,
               { y: 0, autoAlpha: 1, duration: 0.7, ease: 'power2.out' },
               0.35,
-            )
-          }
-
-          if (ring) {
-            entrance.to(
-              ring,
-              { autoAlpha: 1, duration: 1, ease: 'power2.out' },
-              0.12,
             )
           }
 

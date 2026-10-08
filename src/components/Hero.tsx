@@ -1,4 +1,5 @@
-import heroVideo from '../assets/DESCOM_Cinematic_Hero_15s.mp4'
+// import EarthHero from './EarthHero'
+import EarthHeroUpdated from './EarthHeroUpdated'
 import { useHeroTextReveal } from '../hooks/useHeroTextReveal'
 import { isStaticScreenshotMode } from '../lib/enableStaticScreenshotMode'
 
@@ -9,16 +10,12 @@ export function Hero() {
   return (
     <section ref={ref} className="home-hero" aria-label="DesCom">
       <div className="home-hero-planet" aria-hidden="true">
-        <video
-          className="home-hero-video"
-          autoPlay={!staticShot}
-          muted
-          loop={!staticShot}
-          playsInline
-          preload={staticShot ? 'metadata' : undefined}
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+        {/* <EarthHero className="home-hero-earth" speed={staticShot ? 0 : 1} /> */}
+        <EarthHeroUpdated
+          className="home-hero-earth"
+          speed={staticShot ? 0 : 1}
+          textureUrl="/textures/earth-day.jpg"
+        />
       </div>
       <div className="home-hero-copy">
         <div className="home-hero-title-mask">

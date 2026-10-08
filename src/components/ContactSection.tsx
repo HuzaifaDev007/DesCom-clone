@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router'
-import torus from '../assets/footer-torus.png'
 import { useContactForm } from '../hooks/useContactForm'
 import { useContactSectionReveal } from '../hooks/useContactSectionReveal'
 import { CONTACT_REASONS } from '../lib/contactInquiry'
@@ -291,7 +290,6 @@ export function ContactSection() {
               </div>
             </form>
           </div>
-          <img className="join-us-apply-ring" src={torus} alt="" aria-hidden="true" />
         </div>
       </div>
     </section>

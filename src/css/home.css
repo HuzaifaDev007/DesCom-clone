@@ -9,14 +9,17 @@
 }
 
 .home-hero-planet {
-  @apply pointer-events-none absolute inset-x-0 w-full;
-  top: -24%;
-  height: 146%;
+  @apply pointer-events-none absolute inset-0;
 }
 
-.home-hero-video {
-  @apply block h-full w-full object-cover;
-  object-position: center 76%;
+.home-hero-earth {
+  @apply absolute inset-0;
+}
+
+.home-hero-earth canvas {
+  @apply absolute inset-0 block h-full w-full;
+  /* Upscaled undersampled GL buffer — keep filtering soft */
+  image-rendering: auto;
 }
 
 .home-hero-copy {
@@ -89,15 +92,6 @@
 @media (min-width: 1025px) {
   .home-hero {
     @apply pt-[8.75rem];
-  }
-
-  .home-hero-planet {
-    top: -18%;
-    height: 158%;
-  }
-
-  .home-hero-video {
-    object-position: center 70%;
   }
 
   .home-hero-copy {
@@ -764,11 +758,11 @@
 }
 
 .home-campaigns-grid {
-  @apply relative z-10 grid grid-cols-1 gap-[30px];
+  @apply relative z-10 grid grid-cols-1 gap-[20px];
 }
 
 .home-campaigns-card {
-  @apply relative h-[365px] cursor-pointer overflow-hidden rounded-[30px] border-2 border-accent bg-bg-card/75;
+  @apply relative h-[240px] cursor-pointer overflow-hidden rounded-[24px] border-2 border-accent bg-bg-card/75;
   box-shadow: -2px -3px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
@@ -811,12 +805,11 @@
 }
 
 .home-campaigns-card-image {
-  @apply pointer-events-none absolute inset-0 h-full w-full object-cover;
-  object-position: center 42%;
+  @apply pointer-events-none absolute top-[40%] left-1/2 h-[72px] w-[72px] -translate-x-1/2 -translate-y-1/2 object-contain;
 }
 
 .home-campaigns-card-title {
-  @apply relative z-10 w-full text-left font-display text-[1.5rem] leading-[1.15] font-normal text-balance text-text-primary;
+  @apply relative z-10 w-full text-left font-display text-[1.25rem] leading-[1.15] font-normal text-balance text-text-primary;
 }
 
 @media (min-width: 768px) {
@@ -829,19 +822,23 @@
   }
 
   .home-campaigns-grid {
-    @apply grid-cols-2;
+    @apply grid-cols-2 gap-[22px];
   }
 
   .home-campaigns-card {
-    @apply h-[385px];
+    @apply h-[250px];
   }
 
   .home-campaigns-card-face {
-    @apply p-[25px];
+    @apply p-[20px];
+  }
+
+  .home-campaigns-card-image {
+    @apply h-[84px] w-[84px];
   }
 
   .home-campaigns-card-title {
-    @apply text-[17px];
+    @apply text-[18px];
   }
 }
 
@@ -851,7 +848,7 @@
   }
 
   .home-campaigns-inner {
-    @apply gap-[45px] pt-[100px] pb-[100px];
+    @apply gap-[40px] pt-[80px] pb-[80px];
   }
 
   .home-campaigns-kicker {
@@ -867,19 +864,23 @@
   }
 
   .home-campaigns-grid {
-    @apply grid-cols-3;
+    @apply grid-cols-3 gap-[24px];
   }
 
   .home-campaigns-card {
-    @apply h-[370px];
+    @apply h-[260px] rounded-[28px];
   }
 
   .home-campaigns-card-face {
-    @apply p-[35px];
+    @apply p-[24px];
+  }
+
+  .home-campaigns-card-image {
+    @apply h-[96px] w-[96px];
   }
 
   .home-campaigns-card-title {
-    @apply text-[36px];
+    @apply text-[24px];
   }
 }
 
@@ -926,7 +927,9 @@
 }
 
 .home-grow-photo {
-  @apply pointer-events-none absolute inset-0 h-full w-full object-cover object-center;
+  @apply pointer-events-none absolute inset-0 h-full w-full object-cover;
+  /* Keep faces in frame — card is short/wide so default center crops heads */
+  object-position: center 22%;
 }
 
 .home-grow-card::before {

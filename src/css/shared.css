@@ -41,6 +41,11 @@
   @apply text-join;
 }
 
+.navbar-link-active,
+.navbar-link-active:hover {
+  @apply text-accent underline underline-offset-4;
+}
+
 .navbar-cta {
   @apply hidden;
 }
@@ -109,9 +114,13 @@
   @apply relative z-10 block border-b border-accent/20 px-1 py-4 font-display text-[22px] leading-none font-normal text-text-primary no-underline;
 }
 
-.navbar-menu-link:hover,
-.navbar-menu-link-active {
+.navbar-menu-link:hover {
   @apply text-primary-light;
+}
+
+.navbar-menu-link-active,
+.navbar-menu-link-active:hover {
+  @apply text-accent underline underline-offset-4;
 }
 
 .navbar-menu-cta {

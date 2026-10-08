@@ -1,6 +1,5 @@
 import { Link } from 'react-router'
-import officePhoto from '../assets/growSection/office.webp'
-import torus from '../assets/growSection/torus.png'
+import officePhoto from '../assets/growSection/office.png'
 import { AboutTitleMotion } from './AboutTitleMotion'
 import { HighlightUnderline } from './HighlightUnderline'
 
@@ -54,7 +53,6 @@ export function GrowSection() {
                 </div>
               </div>
             </div>
-            <img className="home-grow-ring" src={torus} alt="" />
           </div>
         </div>
       </div>

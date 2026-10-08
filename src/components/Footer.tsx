@@ -1,6 +1,5 @@
 import { Link } from 'react-router'
 import logo from '../assets/DESCOM_VECTOR.svg'
-import torus from '../assets/footer-torus.png'
 
 type FooterDestination = {
   label: string
@@ -116,8 +115,6 @@ export function Footer() {
     <footer className="footer">
       <div className="footer-glow">
         <div className="footer-inner">
-          <img className="footer-ring" src={torus} alt="" />
-
           <div className="footer-columns">
             <div className="footer-brand">
               <Link to="/" className="footer-logo">
