@@ -1,11 +1,11 @@
 @reference "../index.css";
 
 .home {
-  @apply bg-black;
+  @apply bg-ink;
 }
 
 .home-hero {
-  @apply relative isolate flex h-svh min-h-112 items-start justify-center overflow-hidden bg-black pt-[6.75rem];
+  @apply relative isolate flex h-svh min-h-112 items-start justify-center overflow-hidden bg-ink pt-[6.75rem];
 }
 
 .home-hero-planet {
@@ -33,15 +33,7 @@
 
 .home-hero-title-text {
   @apply inline-block bg-clip-text text-transparent;
-  background-image: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #ffffff 52%,
-    #d5dee8 64%,
-    #3d7eaa 76%,
-    #0c5a86 88%,
-    #0a6d90 100%
-  );
+  background-image: var(--gradient-hero-title);
 }
 
 .home-hero-title-text.is-split {
@@ -53,15 +45,7 @@
 
 .home-hero-char {
   @apply inline-block bg-clip-text text-transparent;
-  background-image: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #ffffff 52%,
-    #d5dee8 64%,
-    #3d7eaa 76%,
-    #0c5a86 88%,
-    #0a6d90 100%
-  );
+  background-image: var(--gradient-hero-title);
 }
 
 .home-hero-tagline-mask {
@@ -69,7 +53,19 @@
 }
 
 .home-hero-tagline {
-  @apply mt-4 font-tagline text-sm leading-[1.6] font-semibold tracking-[0.08em] text-white uppercase;
+  @apply mt-4 font-tagline text-sm leading-[1.6] font-semibold tracking-[0.08em] uppercase;
+}
+
+.home-hero-tagline-white {
+  @apply text-text-primary;
+}
+
+.home-hero-tagline-blue {
+  @apply text-text-primary;
+}
+
+.home-hero-tagline-gold {
+  @apply rounded-sm bg-accent px-1.5 text-primary-dark;
 }
 
 @media (min-width: 768px) {
@@ -119,13 +115,13 @@
 
 .home-about {
   @apply relative flex flex-col overflow-x-hidden bg-ink;
-  background-image: radial-gradient(at top right, #1d52e529 0%, #050915 35%);
+  background-image: radial-gradient(at top right, var(--glow-blue-soft) 0%, var(--bg-main) 35%);
 }
 
 .home-about::before {
   content: "";
   @apply pointer-events-none absolute inset-0;
-  background-image: radial-gradient(at bottom right, #1d52e529 0%, #d6282800 40%);
+  background-image: radial-gradient(at bottom right, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .home-about-photo {
@@ -139,31 +135,50 @@
 .home-about-photo::after {
   content: "";
   @apply pointer-events-none absolute inset-0 opacity-35;
-  background-image: linear-gradient(180deg, #0a1329d9 0%, #050915 100%);
+  background-image: linear-gradient(180deg, color-mix(in srgb, var(--bg-section) 85%, transparent) 0%, var(--bg-main) 100%);
 }
 
 .home-about-panel {
-  @apply relative z-10 flex w-full px-[15px] py-[50px];
+  @apply relative z-10 flex w-full bg-bg-section px-[15px] py-[50px];
+}
+
+.home-about-panel::before {
+  content: "";
+  @apply pointer-events-none absolute inset-0 z-0 opacity-15;
+  /* Same metallic stops as DESCOM title, low opacity over section navy */
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--primary-dark) 38%,
+    var(--primary) 62%,
+    var(--primary-light) 82%,
+    var(--text-blue) 100%
+  );
 }
 
 .home-about-copy {
-  @apply relative w-full;
+  @apply relative z-10 w-full;
 }
 
 .home-about-kicker {
-  @apply pointer-events-none relative z-0 m-0 mb-[-28px] font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] text-white/15 uppercase;
+  @apply pointer-events-none relative z-0 m-0 mb-[-28px] font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] text-accent/30 uppercase;
 }
 
 .home-about-title {
-  @apply relative z-10 mb-5 font-display text-[2.125rem] leading-[1.12] font-normal text-white capitalize;
+  @apply relative z-10 mb-5 font-display text-[2.125rem] leading-[1.12] font-normal text-text-primary capitalize;
 }
 
 .home-about-highlight {
-  @apply relative block w-fit font-display leading-[1.3] font-normal text-white italic;
+  @apply relative block w-fit font-display leading-[1.3] font-normal text-primary-light italic;
+}
+
+/* Gold underline under highlighted words on the home page only */
+.home .highlight-underline-mark {
+  @apply text-accent;
 }
 
 .home-about-text {
-  @apply relative z-10 mb-6 font-body text-base leading-[1.7] font-normal text-pretty text-white/83;
+  @apply relative z-10 mb-6 font-body text-base leading-[1.7] font-normal text-pretty text-text-secondary;
 }
 
 .home-about-bottom {
@@ -171,16 +186,22 @@
 }
 
 .home-about-card {
-  @apply rounded-[30px] border-2 border-transparent bg-menu/75 p-[35px] backdrop-blur-[7px];
+  @apply overflow-hidden rounded-[30px] p-0.5;
+  background-image: var(--gradient-card-border-soft);
+  box-shadow: var(--shadow-card-border);
+}
+
+.home-about-card-body {
+  @apply rounded-[28px] bg-bg-card/75 p-[35px] backdrop-blur-[7px];
   box-shadow: -2px -2px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
 .home-about-card-title {
-  @apply mb-3 font-display text-[1.375rem] leading-[1.2] font-normal text-white;
+  @apply mb-3 font-display text-[1.375rem] leading-[1.2] font-normal text-text-primary;
 }
 
 .home-about-card-text {
-  @apply font-body text-base leading-[1.7] font-normal text-pretty text-white/83;
+  @apply font-body text-base leading-[1.7] font-normal text-pretty text-text-secondary;
 }
 
 .home-about-roles {
@@ -188,11 +209,11 @@
 }
 
 .home-about-role {
-  @apply flex items-start gap-2.5 font-body text-base leading-[1.6] font-normal text-white/78;
+  @apply flex items-start gap-2.5 font-body text-base leading-[1.6] font-normal text-text-secondary;
 }
 
 .home-about-role-icon {
-  @apply mt-0.5 size-5 shrink-0 fill-mist;
+  @apply mt-0.5 size-5 shrink-0 fill-accent;
 }
 
 .home-about-orb {
@@ -281,7 +302,7 @@
   @apply relative overflow-hidden bg-ink px-[15px];
   background-image:
     url("../assets/performanceSection/grid.png"),
-    radial-gradient(at top right, #1d52e529 0%, transparent 40%);
+    radial-gradient(at top right, var(--glow-blue-soft) 0%, transparent 40%);
   background-repeat: no-repeat;
   background-position: bottom left, center;
   background-size: contain, auto;
@@ -291,8 +312,26 @@
   content: "";
   @apply pointer-events-none absolute inset-0;
   background-image:
-    radial-gradient(at bottom left, #050915d1 0%, #050915 25%),
-    radial-gradient(at bottom left, #1d52e529 0%, transparent 40%);
+    radial-gradient(
+      at bottom left,
+      color-mix(in srgb, var(--bg-main) 82%, transparent) 0%,
+      var(--bg-main) 25%
+    ),
+    radial-gradient(at bottom left, var(--glow-blue-soft) 0%, transparent 40%);
+}
+
+/* Low-opacity metallic wash — mirrors About panel treatment */
+.home-performance::after {
+  content: "";
+  @apply pointer-events-none absolute inset-0 z-0 opacity-15;
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--primary-dark) 38%,
+    var(--primary) 62%,
+    var(--primary-light) 82%,
+    var(--text-blue) 100%
+  );
 }
 
 .home-performance-inner {
@@ -304,13 +343,13 @@
 }
 
 .home-performance-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-accent/30 uppercase;
   /* Fallback until GSAP owns the transform for the slide reveal */
   /* transform: translate(-50%, -50%); */
 }
 
 .home-performance-title {
-  @apply relative z-10 mx-auto w-full max-w-[900px] text-center font-display text-[2.125rem] leading-[1.12] font-normal text-white capitalize;
+  @apply relative z-10 mx-auto w-full max-w-[900px] text-center font-display text-[2.125rem] leading-[1.12] font-normal text-text-primary capitalize;
 }
 
 .home-performance-title-line,
@@ -319,7 +358,7 @@
 }
 
 .home-performance-title-mark {
-  @apply relative mx-auto w-fit max-w-full;
+  @apply relative mx-auto w-fit max-w-full text-primary-light;
 }
 
 .home-performance-grid {
@@ -333,30 +372,35 @@
 
 .home-performance-card {
   @apply overflow-hidden rounded-[30px] p-0.5;
-  background-image: linear-gradient(230deg, #afc2f6 0%, #0a1329 30%);
-  transition: background-image 0.3s;
+  background-image: var(--gradient-card-border-soft);
+  box-shadow: var(--shadow-card-border);
+  transition:
+    background-image 0.3s,
+    box-shadow 0.3s;
 }
 
 .home-performance-card:hover {
   background-image: linear-gradient(180deg, transparent 0%, transparent 100%);
+  box-shadow: none;
 }
 
 .home-performance-card-body {
-  @apply relative flex min-h-[300px] flex-col justify-end overflow-hidden rounded-[28px] bg-ink p-[35px];
+  @apply relative flex min-h-[300px] flex-col justify-end overflow-hidden rounded-[28px] bg-bg-card/75 p-[35px] backdrop-blur-[7px];
+  box-shadow: -2px -2px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
 .home-performance-card-body::before {
   content: "";
   @apply pointer-events-none absolute inset-0 z-10;
-  background-image: linear-gradient(90deg, #050915 0%, #050915 100%);
-  opacity: 1;
+  background-image: linear-gradient(90deg, var(--bg-main) 0%, var(--bg-main) 100%);
+  opacity: 0;
   transition:
     opacity 0.3s,
     background-image 0.3s;
 }
 
 .home-performance-card:hover .home-performance-card-body::before {
-  background-image: linear-gradient(90deg, #050915 50%, #2b2d4214 100%);
+  background-image: linear-gradient(90deg, var(--bg-main) 50%, color-mix(in srgb, var(--bg-card-hover) 8%, transparent) 100%);
   opacity: 0.6;
 }
 
@@ -374,7 +418,7 @@
 }
 
 .home-performance-icon {
-  @apply mb-5 block text-[45px] leading-none text-mist;
+  @apply mb-5 block text-[45px] leading-none text-accent;
 }
 
 .home-performance-icon::before {
@@ -406,22 +450,23 @@
 }
 
 .home-performance-card-title {
-  @apply mb-3 font-display text-[1.375rem] leading-[1.2] font-normal text-white;
+  @apply mb-3 font-display text-[1.375rem] leading-[1.2] font-normal text-text-primary;
 }
 
 .home-performance-card-text {
-  @apply font-body text-base leading-[1.7] font-normal text-pretty text-white/78;
+  @apply font-body text-base leading-[1.7] font-normal text-pretty text-text-secondary;
 }
 
 .home-performance-photo {
   @apply relative hidden min-h-[304px] overflow-hidden rounded-[30px] p-0.5;
-  background-image: linear-gradient(45deg, #afc2f6 0%, transparent 30%);
+  background-image: var(--gradient-card-border-photo);
+  box-shadow: var(--shadow-card-border);
 }
 
 .home-performance-photo::before {
   content: "";
   @apply pointer-events-none absolute inset-0.5 z-10 rounded-[28px];
-  background-image: linear-gradient(45deg, #afc2f6 0%, transparent 30%);
+  background-image: var(--gradient-card-border-photo);
   opacity: 1;
   transition:
     opacity 0.3s,
@@ -508,18 +553,36 @@
 .home-trusted::before {
   content: "";
   @apply pointer-events-none absolute inset-0 -z-10;
-  background-image: radial-gradient(at bottom right, #050915d1 0%, #050915 25%);
+  background-image: radial-gradient(
+    at bottom right,
+    color-mix(in srgb, var(--bg-main) 82%, transparent) 0%,
+    var(--bg-main) 25%
+  );
+}
+
+/* Low-opacity metallic wash — mirrors About panel / Performance treatment */
+.home-trusted::after {
+  content: "";
+  @apply pointer-events-none absolute inset-0 z-0 opacity-15;
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--primary-dark) 38%,
+    var(--primary) 62%,
+    var(--primary-light) 82%,
+    var(--text-blue) 100%
+  );
 }
 
 .home-trusted-glow {
   @apply relative px-[15px];
-  background-image: radial-gradient(at top right, #1d52e529 0%, transparent 40%);
+  background-image: radial-gradient(at top right, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .home-trusted-glow::before {
   content: "";
   @apply pointer-events-none absolute inset-0;
-  background-image: radial-gradient(at bottom right, #1d52e529 0%, transparent 40%);
+  background-image: radial-gradient(at bottom right, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .home-trusted-inner {
@@ -535,13 +598,13 @@
 }
 
 .home-trusted-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-accent/30 uppercase;
   /* Fallback until GSAP owns the transform for the slide reveal */
   transform: translate(-50%, -50%);
 }
 
 .home-trusted-title {
-  @apply relative z-10 text-center font-display text-[2.125rem] leading-[1.12] font-normal text-white capitalize;
+  @apply relative z-10 text-center font-display text-[2.125rem] leading-[1.12] font-normal text-text-primary capitalize;
 }
 
 .home-trusted-title-line,
@@ -550,11 +613,11 @@
 }
 
 .home-trusted-title-mark {
-  @apply relative mx-auto w-fit max-w-full;
+  @apply relative mx-auto w-fit max-w-full text-primary-light;
 }
 
 .home-trusted-text {
-  @apply relative z-10 mt-4 text-center font-body text-base leading-[1.7] font-normal text-pretty text-white/78;
+  @apply relative z-10 mt-4 text-center font-body text-base leading-[1.7] font-normal text-pretty text-text-secondary;
 }
 
 .home-trusted-grid {
@@ -563,19 +626,21 @@
 
 .home-trusted-card {
   @apply overflow-hidden rounded-[30px] p-0.5;
-  background-image: linear-gradient(230deg, #afc2f6 0%, #0a1329 30%);
+  background-image: var(--gradient-card-border-soft);
+  box-shadow: var(--shadow-card-border);
 }
 
 .home-trusted-card-body {
-  @apply relative flex min-h-[300px] flex-col items-start justify-end rounded-[28px] bg-ink p-[35px];
+  @apply relative flex min-h-[300px] flex-col items-start justify-end rounded-[28px] bg-bg-card/75 p-[35px] backdrop-blur-[7px];
+  box-shadow: -2px -2px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
 .home-trusted-card-label {
-  @apply absolute top-[30px] right-0 left-0 px-4 text-center font-body text-sm leading-[1.45] font-medium text-balance text-white/80;
+  @apply absolute top-[30px] right-0 left-0 px-4 text-center font-body text-sm leading-[1.45] font-medium text-balance text-text-secondary;
 }
 
 .home-trusted-card-value {
-  @apply font-display text-[2.75rem] leading-none font-normal text-white;
+  @apply font-display text-[2.75rem] leading-none font-normal text-text-primary;
 }
 
 @media (min-width: 768px) {
@@ -597,7 +662,7 @@
   }
 
   .home-trusted-card-label {
-    @apply font-display text-[17px] leading-[1.3] font-normal whitespace-nowrap text-white;
+    @apply font-display text-[17px] leading-[1.3] font-normal whitespace-nowrap text-text-primary;
   }
 }
 
@@ -639,18 +704,36 @@
 .home-campaigns::before {
   content: "";
   @apply pointer-events-none absolute inset-0 -z-10;
-  background-image: radial-gradient(at top right, #050915d1 0%, #050915 25%);
+  background-image: radial-gradient(
+    at top right,
+    color-mix(in srgb, var(--bg-main) 82%, transparent) 0%,
+    var(--bg-main) 25%
+  );
+}
+
+/* Low-opacity metallic wash — mirrors About panel / Performance treatment */
+.home-campaigns::after {
+  content: "";
+  @apply pointer-events-none absolute inset-0 z-0 opacity-15;
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--primary-dark) 38%,
+    var(--primary) 62%,
+    var(--primary-light) 82%,
+    var(--text-blue) 100%
+  );
 }
 
 .home-campaigns-glow {
   @apply relative px-[15px];
-  background-image: radial-gradient(at top right, #1d52e529 0%, #d6282800 40%);
+  background-image: radial-gradient(at top right, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .home-campaigns-glow::before {
   content: "";
   @apply pointer-events-none absolute inset-0;
-  background-image: radial-gradient(at bottom left, #1d52e529 0%, #d6282800 40%);
+  background-image: radial-gradient(at bottom left, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .home-campaigns-inner {
@@ -662,17 +745,17 @@
 }
 
 .home-campaigns-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[50px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[50px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-accent/30 uppercase;
   /* Fallback until GSAP owns the transform for the slide reveal */
   /* transform: translate(-50%, -50%); */
 }
 
 .home-campaigns-title {
-  @apply relative z-10 text-center font-display text-[2.125rem] leading-[1.12] font-normal text-white capitalize;
+  @apply relative z-10 text-center font-display text-[48px] leading-[1.12] font-normal text-text-primary capitalize;
 }
 
 .home-campaigns-title-mark {
-  @apply relative inline-block italic;
+  @apply relative inline-block text-primary-light italic;
 }
 
 .home-campaigns-orb {
@@ -685,12 +768,12 @@
 }
 
 .home-campaigns-card {
-  @apply relative h-[365px] cursor-pointer overflow-hidden rounded-[30px] border border-white/15 bg-menu/75;
+  @apply relative h-[365px] cursor-pointer overflow-hidden rounded-[30px] border-2 border-accent bg-bg-card/75;
   box-shadow: -2px -3px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
 .home-campaigns-card:focus-visible {
-  @apply outline-2 outline-offset-2 outline-mist;
+  @apply outline-2 outline-offset-2 outline-accent;
 }
 
 .home-campaigns-card-face {
@@ -698,7 +781,7 @@
 }
 
 .home-campaigns-card-back {
-  @apply translate-y-full border-2 border-mist;
+  @apply translate-y-full;
 }
 
 .home-campaigns-card:hover .home-campaigns-card-front,
@@ -733,7 +816,7 @@
 }
 
 .home-campaigns-card-title {
-  @apply relative z-10 w-full text-left font-display text-[1.5rem] leading-[1.15] font-normal text-balance text-white;
+  @apply relative z-10 w-full text-left font-display text-[1.5rem] leading-[1.15] font-normal text-balance text-text-primary;
 }
 
 @media (min-width: 768px) {
@@ -742,7 +825,7 @@
   }
 
   .home-campaigns-title {
-    @apply text-[35px];
+    @apply text-[52px];
   }
 
   .home-campaigns-grid {
@@ -816,13 +899,13 @@
 
 .home-grow-glow {
   @apply relative px-[15px] py-[50px];
-  background-image: radial-gradient(at top right, #1d52e529 0%, #d6282800 40%);
+  background-image: radial-gradient(at top right, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .home-grow-glow::before {
   content: "";
   @apply pointer-events-none absolute inset-0;
-  background-image: radial-gradient(at bottom right, #1d52e529 0%, #d6282800 40%);
+  background-image: radial-gradient(at bottom right, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .home-grow-inner {
@@ -835,7 +918,7 @@
 
 .home-grow-frame {
   @apply overflow-hidden rounded-[30px] p-0.5;
-  background-image: linear-gradient(230deg, #afc2f6 0%, #0a1329 30%);
+  background-image: var(--gradient-card-border);
 }
 
 .home-grow-card {
@@ -849,7 +932,7 @@
 .home-grow-card::before {
   content: "";
   @apply pointer-events-none absolute inset-0 z-10;
-  background-image: linear-gradient(180deg, #050915 30%, #0a1329bf 100%);
+  background-image: linear-gradient(180deg, var(--bg-main) 30%, color-mix(in srgb, var(--bg-section) 75%, transparent) 100%);
   opacity: 0.6;
 }
 
@@ -858,7 +941,7 @@
 }
 
 .home-grow-title {
-  @apply w-full font-display text-[2rem] leading-[1.12] font-normal text-white capitalize;
+  @apply w-full font-display text-[2rem] leading-[1.12] font-normal text-text-primary capitalize;
 }
 
 .home-grow-title-line {
@@ -866,19 +949,19 @@
 }
 
 .home-grow-title-mark {
-  @apply relative mx-auto block w-fit max-w-full;
+  @apply relative mx-auto block w-fit max-w-full text-primary-light;
 }
 
 .home-grow-text {
-  @apply m-0 font-body text-base leading-[1.7] font-normal text-pretty text-white;
+  @apply m-0 font-body text-base leading-[1.7] font-normal text-pretty text-text-primary;
 }
 
 .home-grow-cta {
-  @apply inline-flex items-center justify-center gap-2.5 rounded-[30px] border border-join bg-join px-[35px] py-4 font-display text-[13px] leading-[1.3] font-normal tracking-[0.5px] text-white uppercase no-underline;
+  @apply inline-flex items-center justify-center gap-2.5 rounded-[30px] border-2 border-accent bg-join px-[35px] py-4 font-display text-[13px] leading-[1.3] font-normal tracking-[0.5px] text-text-primary uppercase no-underline;
 }
 
 .home-grow-cta:hover {
-  @apply border-join-hover bg-join-hover text-white;
+  @apply border-accent bg-join-hover text-text-primary;
 }
 
 .home-grow-cta-icon {

@@ -1,0 +1,42 @@
+---
+description: Route CSS files and kebab-case class names for Tailwind @apply
+globs: src/**/*.{css,tsx}
+alwaysApply: false
+---
+
+# CSS structure
+
+Route styles live in `src/css/`, one file per route. The filename is the lowercase route slug.
+
+- `/` → `src/css/home.css`
+- `/about` → `src/css/about.css`
+- `/services` → `src/css/services.css`
+- UI used on more than one route (`.navbar`, `.button`) → `src/css/shared.css`
+
+`src/index.css` stays `@import "tailwindcss";` and `@theme` tokens only. Each file in `src/css/` starts with `@reference "tailwindcss";`. The page imports its route file. The shell imports `shared.css` once.
+
+Each UI part is one kebab-case class. Tailwind utilities go in `@apply`. JSX uses that class name only.
+
+```css
+.navbar {
+  @apply border-b border-zinc-200 bg-white;
+}
+
+.home-hero {
+  @apply mx-auto max-w-5xl px-4 py-16;
+}
+```
+
+- Page-only classes start with the route slug: `.home-hero`, `.services-card`
+- Children extend the parent name: `.navbar-link`, `.navbar-link-active`
+- Shared components use the component name: `.navbar`, `.button-secondary`
+
+```tsx
+// ❌ BAD
+<header className="border-b border-zinc-200 bg-white">
+
+// ✅ GOOD
+<header className="navbar">
+```
+
+Do not put route classes in `src/index.css` or in a component file. Do not use camelCase, PascalCase, or utility-like names (`.flex-center`). Do not copy a shared class into every route file.
