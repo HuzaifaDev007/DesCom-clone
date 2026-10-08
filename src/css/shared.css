@@ -766,10 +766,6 @@
     @apply pb-[100px];
   }
 
-  .page-hero-kicker {
-    @apply text-[15px];
-  }
-
   .page-hero-title {
     @apply text-[64px];
   }
@@ -782,10 +778,6 @@
 @media (min-width: 1025px) {
   .page-hero {
     --page-hero-pt: 250px;
-  }
-
-  .page-hero-kicker {
-    @apply text-[13px];
   }
 
   .page-hero-title {
@@ -866,13 +858,18 @@
   @apply flex flex-col gap-5;
 }
 
-/* Gradient border lives on border-box so overflow clips the animating panel to the rounded card */
+/* Soft gradient frame (About / Performance recipe). ::before is the translucent body so
+   <summary> can stay a direct child of <details> for accordion semantics. */
 .faq-section-item {
-  @apply overflow-hidden rounded-[30px] border-2 border-transparent;
-  background:
-    linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
-    var(--gradient-card-border) border-box;
+  @apply relative overflow-hidden rounded-[30px] p-0.5;
+  background-image: var(--gradient-card-border-soft);
   box-shadow: var(--shadow-card-border);
+}
+
+.faq-section-item::before {
+  content: "";
+  @apply pointer-events-none absolute inset-0.5 rounded-[28px] bg-bg-card/75 backdrop-blur-[7px];
+  box-shadow: -2px -2px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
 .faq-section-item:has(.faq-section-question:focus-visible) {
@@ -880,7 +877,7 @@
 }
 
 .faq-section-question {
-  @apply flex cursor-pointer list-none items-center justify-between gap-5 px-[25px] py-5 outline-none;
+  @apply relative z-10 flex cursor-pointer list-none items-center justify-between gap-5 px-[25px] py-5 outline-none;
 }
 
 .faq-section-question::-webkit-details-marker {
@@ -915,7 +912,7 @@
 }
 
 .faq-section-answer-panel {
-  @apply overflow-hidden;
+  @apply relative z-10 overflow-hidden;
 }
 
 .faq-section-answer {
