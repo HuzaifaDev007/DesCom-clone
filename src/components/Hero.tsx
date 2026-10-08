@@ -1,4 +1,4 @@
-import marsVideo from '../assets/marsvideo.mp4'
+import heroVideo from '../assets/DESCOM_Cinematic_Hero_15s.mp4'
 import { useHeroTextReveal } from '../hooks/useHeroTextReveal'
 import { isStaticScreenshotMode } from '../lib/enableStaticScreenshotMode'
 
@@ -17,7 +17,7 @@ export function Hero() {
           playsInline
           preload={staticShot ? 'metadata' : undefined}
         >
-          <source src={marsVideo} type="video/mp4" />
+          <source src={heroVideo} type="video/mp4" />
         </video>
       </div>
       <div className="home-hero-copy">
