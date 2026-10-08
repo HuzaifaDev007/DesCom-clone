@@ -49,12 +49,14 @@ export function AboutSection() {
           </p>
           <div className="home-about-bottom">
             <div className="home-about-card">
-              <h3 className="home-about-card-title">
-                Explore Coverage Options
-              </h3>
-              <p className="home-about-card-text">
-                Personalized plans designed to protect what matters most.
-              </p>
+              <div className="home-about-card-body">
+                <h3 className="home-about-card-title">
+                  Explore Coverage Options
+                </h3>
+                <p className="home-about-card-text">
+                  Personalized plans designed to protect what matters most.
+                </p>
+              </div>
             </div>
             <ul className="home-about-roles">
               {focusAreas.map((area) => (

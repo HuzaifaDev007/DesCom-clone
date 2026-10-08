@@ -1,18 +1,21 @@
 import marsVideo from '../assets/marsvideo.mp4'
 import { useHeroTextReveal } from '../hooks/useHeroTextReveal'
+import { isStaticScreenshotMode } from '../lib/enableStaticScreenshotMode'
 
 export function Hero() {
   const { ref } = useHeroTextReveal()
+  const staticShot = isStaticScreenshotMode()
 
   return (
     <section ref={ref} className="home-hero" aria-label="DesCom">
       <div className="home-hero-planet" aria-hidden="true">
         <video
           className="home-hero-video"
-          autoPlay
+          autoPlay={!staticShot}
           muted
-          loop
+          loop={!staticShot}
           playsInline
+          preload={staticShot ? 'metadata' : undefined}
         >
           <source src={marsVideo} type="video/mp4" />
         </video>
@@ -25,9 +28,10 @@ export function Hero() {
         </div>
         <div className="home-hero-tagline-mask">
           <p className="home-hero-tagline">
-            Protecting Your Future,
+            <span className="home-hero-tagline-white">Protecting Your Future,</span>
             <br />
-            Securing Your Peace of Mind
+            <span className="home-hero-tagline-blue">Securing Your </span>
+            <span className="home-hero-tagline-gold">Peace of Mind</span>
           </p>
         </div>
       </div>
