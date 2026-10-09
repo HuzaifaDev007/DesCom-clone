@@ -1,4 +1,3 @@
-import torus from '../assets/footer-torus.png'
 import { useAgentApplicationForm } from '../hooks/useAgentApplicationForm'
 import { useJoinApplyReveal } from '../hooks/useJoinApplyReveal'
 import { US_STATES } from '../lib/agentApplication'
@@ -187,7 +186,6 @@ export function JoinApplySection() {
               </div>
             </form>
           </div>
-          <img className="join-us-apply-ring" src={torus} alt="" aria-hidden="true" />
         </div>
       </div>
     </section>

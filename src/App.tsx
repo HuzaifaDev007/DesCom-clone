@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar'
 import { SmoothScroll } from './components/SmoothScroll'
 import './css/shared.css'
 import { AboutUsPage } from './pages/AboutUsPage'
+import { CareerPage } from './pages/CareerPage'
 import { ContactPage } from './pages/ContactPage'
 import { FaqPage } from './pages/FaqPage'
 import { HomePage } from './pages/HomePage'
@@ -24,6 +25,8 @@ export default function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/join-our-agency" element={<JoinUsPage />} />
             <Route path="/join-us" element={<JoinUsPage />} />
+            <Route path="/career" element={<CareerPage />} />
+            <Route path="/carrer" element={<CareerPage />} />
             <Route path="/insurance-lead-generation" element={<LeadGenerationPage />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/contact-us" element={<ContactPage />} />

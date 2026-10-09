@@ -1,21 +1,21 @@
-import marsVideo from '../assets/marsvideo.mp4'
+// import EarthHero from './EarthHero'
+import EarthHeroUpdated from './EarthHeroUpdated'
 import { useHeroTextReveal } from '../hooks/useHeroTextReveal'
+import { isStaticScreenshotMode } from '../lib/enableStaticScreenshotMode'
 
 export function Hero() {
   const { ref } = useHeroTextReveal()
+  const staticShot = isStaticScreenshotMode()
 
   return (
     <section ref={ref} className="home-hero" aria-label="DesCom">
       <div className="home-hero-planet" aria-hidden="true">
-        <video
-          className="home-hero-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src={marsVideo} type="video/mp4" />
-        </video>
+        {/* <EarthHero className="home-hero-earth" speed={staticShot ? 0 : 1} /> */}
+        <EarthHeroUpdated
+          className="home-hero-earth"
+          speed={staticShot ? 0 : 1}
+          textureUrl="/textures/earth-day.jpg"
+        />
       </div>
       <div className="home-hero-copy">
         <div className="home-hero-title-mask">
@@ -25,9 +25,10 @@ export function Hero() {
         </div>
         <div className="home-hero-tagline-mask">
           <p className="home-hero-tagline">
-            Protecting Your Future,
+            <span className="home-hero-tagline-white">Protecting Your Future,</span>
             <br />
-            Securing Your Peace of Mind
+            <span className="home-hero-tagline-blue">Securing Your </span>
+            <span className="home-hero-tagline-gold">Peace of Mind</span>
           </p>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import { Link } from 'react-router'
-import torus from '../assets/footer-torus.png'
 import { useJoinApplyReveal } from '../hooks/useJoinApplyReveal'
 import { useLeadInquiryForm } from '../hooks/useLeadInquiryForm'
 import { LEAD_TYPES } from '../lib/leadInquiry'
@@ -248,7 +247,6 @@ export function LeadInquirySection() {
               </div>
             </form>
           </div>
-          <img className="join-us-apply-ring" src={torus} alt="" aria-hidden="true" />
         </div>
       </div>
     </section>

@@ -11,7 +11,7 @@ const faqCategories = [
       {
         question: 'How do I file a claim with Unified Risk Solutions?',
         answer:
-          'You can file a claim 24/7 through our online portal, by calling our dedicated claims hotline at 848-256-9995, or by contacting your personal agent directly. We recommend having your policy number and incident details ready to expedite the process.',
+          'You can file a claim 24/7 through our online portal, by calling our dedicated claims hotline at +92 0348 5541825, or by contacting your personal agent directly. We recommend having your policy number and incident details ready to expedite the process.',
       },
       {
         question: 'How can I update my policy information or coverage limits?',

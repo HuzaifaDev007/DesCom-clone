@@ -26,28 +26,27 @@ export function useHeroTextReveal() {
       }
 
       const planet = root.querySelector('.home-hero-planet')
-      const video = root.querySelector('.home-hero-video')
       const title = root.querySelector('.home-hero-title-text')
       const tagline = root.querySelector('.home-hero-tagline')
-      if (!planet || !video || !title || !tagline) return
+      if (!planet || !title || !tagline) return
 
       const desktop = window.matchMedia('(min-width: 1025px)').matches
       const taglineTravel = desktop ? 28 : 16
-      const settle = desktop ? 20 : 12
       const parallax = desktop ? 0.32 : 0.18
 
-      gsap.set(video, { y: settle })
+      // Do not transform the WebGL canvas — CSS y on a redrawing GL layer tanks FPS.
       gsap.set(title, { autoAlpha: 0 })
       gsap.set(tagline, { y: taglineTravel, autoAlpha: 0 })
 
       gsap.to(planet, {
         y: () => window.innerHeight * parallax,
         ease: 'none',
+        force3D: true,
         scrollTrigger: {
           trigger: root,
           start: 'top top',
           end: 'bottom top',
-          scrub: true,
+          scrub: 0.6,
           invalidateOnRefresh: true,
         },
       })
@@ -76,17 +75,7 @@ export function useHeroTextReveal() {
         gsap.set(masks, { opacity: 0 })
         gsap.set(titleEl, { autoAlpha: 1 })
 
-        entrance = gsap.timeline()
-
-        entrance.to(
-          video,
-          {
-            y: 0,
-            duration: 1.15,
-            ease: 'power2.out',
-          },
-          0,
-        )
+        entrance = gsap.timeline({ defaults: { overwrite: 'auto' } })
 
         entrance.fromTo(
           masks,

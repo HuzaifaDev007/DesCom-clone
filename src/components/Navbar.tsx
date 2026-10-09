@@ -8,6 +8,7 @@ const navLinks = [
   { to: '/', label: 'Home', end: true },
   { to: '/about-us', label: 'About Us', end: false },
   { to: '/services', label: 'Services', end: false },
+  { to: '/career', label: 'Career', end: false },
   { to: '/join-our-agency', label: 'Join Our Agency', end: false },
   { to: '/insurance-lead-generation', label: 'Lead Generation', end: false },
   { to: '/faq', label: 'FAQ', end: false },
@@ -69,7 +70,9 @@ export function Navbar() {
                 key={link.to}
                 to={link.to}
                 end={link.end}
-                className="navbar-link"
+                className={({ isActive }) =>
+                  isActive ? 'navbar-link navbar-link-active' : 'navbar-link'
+                }
               >
                 {link.label}
               </NavLink>
