@@ -8,6 +8,7 @@ const navLinks = [
   { to: '/', label: 'Home', end: true },
   { to: '/about-us', label: 'About Us', end: false },
   { to: '/services', label: 'Services', end: false },
+  { to: '/career', label: 'Career', end: false },
   { to: '/join-our-agency', label: 'Join Our Agency', end: false },
   { to: '/insurance-lead-generation', label: 'Lead Generation', end: false },
   { to: '/faq', label: 'FAQ', end: false },

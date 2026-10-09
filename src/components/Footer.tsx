@@ -11,6 +11,7 @@ const quickLinks: FooterDestination[] = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about-us' },
   { label: 'Services', to: '/services' },
+  { label: 'Career', to: '/career' },
   { label: 'Join Our Agency', to: '/join-our-agency' },
   { label: 'Lead Generation', to: '/insurance-lead-generation' },
   { label: 'FAQ', to: '/faq' },
@@ -165,16 +166,16 @@ export function Footer() {
                 <li>
                   <a
                     className="footer-contact-link"
-                    href="mailto:admin@unifiedrisksolutions.com"
+                    href="mailto:info@descom.com"
                   >
                     <MailIcon />
-                    admin@unifiedrisksolutions.com
+                    info@descom.com
                   </a>
                 </li>
                 <li>
-                  <a className="footer-contact-link" href="tel:+18482569995">
+                  <a className="footer-contact-link" href="tel:+9203485541825">
                     <PhoneIcon />
-                    848-256-9995
+                    +92 0348 5541825
                   </a>
                 </li>
               </ul>
