@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { useJoinApplyReveal } from '../hooks/useJoinApplyReveal'
 import { useLeadInquiryForm } from '../hooks/useLeadInquiryForm'
 import { LEAD_TYPES } from '../lib/leadInquiry'
@@ -149,6 +150,80 @@ export function LeadInquirySection() {
                   value={values.expectedVolume}
                   onChange={handleChange}
                 />
+              </div>
+
+              <div className="join-us-apply-field join-us-apply-field-wide">
+                <div className="lead-generation-inquiry-consent">
+                  <div className="lead-generation-inquiry-consent-row">
+                    <input
+                      className="lead-generation-inquiry-checkbox"
+                      id="lead-sms-consent"
+                      name="smsConsent"
+                      type="checkbox"
+                      checked={values.smsConsent}
+                      onChange={handleChange}
+                    />
+                    <label
+                      className="lead-generation-inquiry-consent-text"
+                      htmlFor="lead-sms-consent"
+                    >
+                      I agree to receive text messages about my inquiry
+                    </label>
+                  </div>
+
+                  <details className="lead-generation-inquiry-consent-details">
+                    <summary className="lead-generation-inquiry-consent-summary">
+                      <span>Messaging terms</span>
+                      <svg
+                        className="lead-generation-inquiry-consent-chevron"
+                        viewBox="0 0 12 12"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M2.5 4.5 6 8l3.5-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </summary>
+                    <div className="lead-generation-inquiry-consent-expanded">
+                      <p>
+                        By checking this box, I consent to receive text messages
+                        from Unified Solutions regarding my inquiry, services,
+                        appointments, updates, and follow-ups. Message and data
+                        rates may apply. Message frequency may vary. Reply STOP
+                        to opt out and HELP for assistance. I have read and
+                        agree to the{' '}
+                        <Link
+                          className="lead-generation-inquiry-consent-link"
+                          to="/privacy-policy"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Privacy Policy
+                        </Link>{' '}
+                        and{' '}
+                        <Link
+                          className="lead-generation-inquiry-consent-link"
+                          to="/terms-of-service"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Terms of Service
+                        </Link>
+                        . Consent is not a condition of purchase.
+                      </p>
+                      <p>
+                        Your information will only be used to respond to your
+                        inquiry and communicate with you about Unified Solutions
+                        services.
+                      </p>
+                    </div>
+                  </details>
+                </div>
               </div>
 
               <div className="join-us-apply-field join-us-apply-field-wide">

@@ -189,20 +189,21 @@
   }
 }
 
+/* Contact page: full checkbox + legal copy */
 .lead-generation-inquiry-consent {
   @apply flex items-start gap-4 rounded-[15px] border border-white/10 bg-menu/75 p-5;
 }
 
 .lead-generation-inquiry-checkbox {
-  @apply mt-1 size-[18px] shrink-0 cursor-pointer accent-join;
+  @apply mt-0.5 size-[16px] shrink-0 cursor-pointer accent-join;
 }
 
 .lead-generation-inquiry-consent-copy {
-  @apply flex flex-col gap-3;
+  @apply flex min-w-0 flex-col gap-3;
 }
 
 .lead-generation-inquiry-consent-text {
-  @apply cursor-pointer font-body text-[14px] leading-[1.6] font-normal text-white/70;
+  @apply cursor-pointer font-body text-[14px] leading-[1.5] font-normal text-white/70;
 }
 
 .lead-generation-inquiry-consent-link {
@@ -215,6 +216,56 @@
 
 .lead-generation-inquiry-consent-note {
   @apply m-0 border-t border-white/10 pt-3 font-body text-[13px] leading-[1.5] text-white/50 italic;
+}
+
+/* Lead form: borderless row + inline terms toggle (no nested boxes) */
+.lead-generation-inquiry .lead-generation-inquiry-consent {
+  @apply flex-col gap-1.5 rounded-none border-0 bg-transparent p-0;
+}
+
+.lead-generation-inquiry-consent-row {
+  @apply flex items-start gap-2.5;
+}
+
+.lead-generation-inquiry .lead-generation-inquiry-consent-text {
+  @apply text-[13px] leading-[1.4] text-white/75;
+}
+
+.lead-generation-inquiry-consent-details {
+  @apply ml-[26px];
+}
+
+.lead-generation-inquiry-consent-summary {
+  @apply inline-flex cursor-pointer list-none items-center gap-1 font-body text-[12px] leading-none font-medium tracking-[0.01em] text-mist;
+}
+
+.lead-generation-inquiry-consent-summary::-webkit-details-marker {
+  display: none;
+}
+
+.lead-generation-inquiry-consent-summary:hover {
+  @apply text-white;
+}
+
+.lead-generation-inquiry-consent-chevron {
+  @apply size-2.5 shrink-0 opacity-70 transition-transform duration-200;
+}
+
+.lead-generation-inquiry-consent-details[open]
+  .lead-generation-inquiry-consent-chevron {
+  transform: rotate(180deg);
+}
+
+.lead-generation-inquiry-consent-expanded {
+  @apply mt-2 flex flex-col gap-2 border-l border-white/15 pl-3;
+}
+
+.lead-generation-inquiry-consent-expanded p {
+  @apply m-0 font-body text-[12px] leading-[1.55] font-normal text-white/50;
+}
+
+.lead-generation-inquiry-consent-expanded p + p {
+  @apply text-white/40 italic;
 }
 
 @media (min-width: 768px) {
