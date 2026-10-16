@@ -1,6 +1,5 @@
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import torus from '../assets/footer-torus.png'
 import { useServiceFeatureReveal } from '../hooks/useServiceFeatureReveal'
 import { AboutTitleMotion } from './AboutTitleMotion'
 import 'swiper/css'
@@ -55,12 +54,6 @@ export function ServiceFeature({
           </div>
 
           <div className="service-feature-gallery-wrap">
-            <img
-              className="service-feature-ring"
-              src={torus}
-              alt=""
-              aria-hidden="true"
-            />
             <div className="service-feature-gallery">
               <Swiper
                 className="service-feature-swiper"

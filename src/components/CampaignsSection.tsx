@@ -1,19 +1,19 @@
-import aca from '../assets/campaignsSection/aca.jpg'
-import energy from '../assets/campaignsSection/energy.jpg'
-import home from '../assets/campaignsSection/home.jpg'
-import insurance from '../assets/campaignsSection/insurance.jpg'
-import medicare from '../assets/campaignsSection/medicare.jpg'
-import mva from '../assets/campaignsSection/mva.jpg'
+import aca from '../assets/campaignsSection/aca.png'
+import energy from '../assets/campaignsSection/energy.png'
+import home from '../assets/campaignsSection/home.png'
+import insurance from '../assets/campaignsSection/insurance.png'
+import medicare from '../assets/campaignsSection/medicare.png'
+import mva from '../assets/campaignsSection/mva.png'
 import { useScrollSlideReveal } from '../hooks/useScrollSlideReveal'
 import { AboutTitleMotion } from './AboutTitleMotion'
 import { HighlightUnderline } from './HighlightUnderline'
 import { CampaignsGridMotion } from './CampaignsGridMotion'
 
 const campaigns = [
-  { title: 'ACA Marketplace Plans', image: aca },
-  { title: 'Health Insurance', image: insurance },
   { title: 'Final Expense Life Insurance', image: medicare },
   { title: 'Medicaid Guidance', image: mva },
+  { title: 'ACA Marketplace Plans', image: aca },
+  { title: 'Health Insurance', image: insurance },
   { title: 'Home & Auto Coverage', image: home },
   { title: 'Business Protection', image: energy },
 ] as const

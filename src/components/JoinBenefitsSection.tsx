@@ -1,4 +1,4 @@
-import teamPhoto from '../assets/servicesFeature/gallery-1.webp'
+import teamPhoto from '../assets/servicesFeature/gallery-1.png'
 import { useJoinBenefitsReveal } from '../hooks/useJoinBenefitsReveal'
 import { formatIndex } from '../lib/formatIndex'
 import { AboutTitleMotion } from './AboutTitleMotion'

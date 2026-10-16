@@ -44,7 +44,7 @@
 }
 
 .about-us-overview-title {
-  @apply relative z-10 m-0 text-center font-display text-[30px] leading-[1.3] font-normal text-white capitalize;
+  @apply relative z-10 m-0 text-center font-display text-[48px] leading-[1.3] font-normal text-white capitalize;
 }
 
 .about-us-overview-title-line,
@@ -94,7 +94,7 @@
 }
 
 .about-us-overview-values-title {
-  @apply m-0 text-center font-display text-[25px] leading-[1.3] font-normal text-white;
+  @apply m-0 text-center font-display text-[36px] leading-[1.3] font-normal text-white;
 }
 
 .about-us-overview-grid {
@@ -103,15 +103,17 @@
 
 .about-us-overview-card {
   @apply overflow-hidden rounded-[30px] p-0.5;
-  background-image: linear-gradient(230deg, #afc2f6 0%, #0a1329 30%);
+  background-image: var(--gradient-card-border-soft);
+  box-shadow: var(--shadow-card-border);
 }
 
 .about-us-overview-card-body {
-  @apply flex h-full min-h-[220px] flex-col justify-between gap-[30px] rounded-[28px] bg-ink p-[35px];
+  @apply flex h-full min-h-[220px] flex-col justify-between gap-[30px] rounded-[28px] bg-bg-card/75 p-[35px] backdrop-blur-[7px];
+  box-shadow: -2px -2px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
 .about-us-overview-card-index {
-  @apply font-display text-[40px] leading-none font-normal text-mist/40;
+  @apply font-display text-[40px] leading-none font-normal text-accent/30;
 }
 
 .about-us-overview-card-copy {
@@ -119,11 +121,11 @@
 }
 
 .about-us-overview-card-title {
-  @apply m-0 font-display text-[22px] leading-[1.3] font-normal text-white;
+  @apply m-0 font-display text-[22px] leading-[1.3] font-normal text-text-primary;
 }
 
 .about-us-overview-card-text {
-  @apply m-0 font-body text-[16px] leading-[1.5] font-normal text-white/78;
+  @apply m-0 font-body text-[16px] leading-[1.5] font-normal text-text-secondary;
 }
 
 @media (min-width: 768px) {
@@ -136,7 +138,7 @@
   }
 
   .about-us-overview-title {
-    @apply text-[35px];
+    @apply text-[52px];
   }
 
   .about-us-overview-mission-body {
@@ -148,7 +150,7 @@
   }
 
   .about-us-overview-values-title {
-    @apply text-[30px];
+    @apply text-[40px];
   }
 }
 

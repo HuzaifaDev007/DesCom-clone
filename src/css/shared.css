@@ -34,11 +34,16 @@
 }
 
 .navbar-link {
-  @apply font-display text-[15px] font-normal leading-none text-white no-underline;
+  @apply font-display text-[15px] leading-none font-normal text-text-primary no-underline;
 }
 
 .navbar-link:hover {
   @apply text-join;
+}
+
+.navbar-link-active,
+.navbar-link-active:hover {
+  @apply text-accent underline underline-offset-4;
 }
 
 .navbar-cta {
@@ -46,19 +51,19 @@
 }
 
 .navbar-join {
-  @apply inline-flex items-center justify-center rounded-[30px] border border-join bg-join px-[35px] py-4 font-display text-[13px] font-normal leading-[1.3] tracking-[0.5px] text-white uppercase no-underline;
+  @apply inline-flex items-center justify-center rounded-[30px] border-2 border-accent bg-join px-[35px] py-4 font-display text-[13px] leading-[1.3] font-normal tracking-[0.5px] text-text-primary uppercase no-underline;
 }
 
 .navbar-join:hover {
-  @apply border-join-hover bg-join-hover text-white;
+  @apply border-accent bg-join-hover text-text-primary;
 }
 
 .navbar-toggle {
-  @apply relative ml-auto inline-flex h-9 w-[45px] shrink-0 cursor-pointer items-center justify-center rounded-[3px] bg-join;
+  @apply relative ml-auto inline-flex h-9 w-[45px] shrink-0 cursor-pointer items-center justify-center rounded-[3px] border border-accent bg-join;
 }
 
 .navbar-toggle-bar {
-  @apply absolute left-2 h-px w-[29px] origin-center bg-white transition-[transform,opacity] duration-300 ease-in-out;
+  @apply absolute left-2 h-px w-[29px] origin-center bg-text-primary transition-[transform,opacity] duration-300 ease-in-out;
 }
 
 .navbar-toggle-bar:nth-child(1) {
@@ -82,8 +87,23 @@
 }
 
 .navbar-menu {
-  @apply invisible pointer-events-none fixed top-0 left-0 z-0 flex h-dvh w-[90vw] max-w-[90vw] flex-col overflow-y-auto bg-ink px-5 pt-[96px] pb-8 shadow-[8px_0_32px_rgba(0,0,0,0.45)];
+  @apply invisible pointer-events-none fixed top-0 left-0 z-0 flex h-dvh w-[90vw] max-w-[90vw] flex-col overflow-y-auto bg-bg-section px-5 pt-[96px] pb-8 shadow-[8px_0_32px_rgba(0,0,0,0.45)];
   transform: translate3d(-100%, 0, 0);
+  background-image: radial-gradient(at top right, var(--glow-blue-soft) 0%, transparent 45%);
+}
+
+/* Low-opacity metallic wash — mirrors About panel treatment */
+.navbar-menu::before {
+  content: "";
+  @apply pointer-events-none absolute inset-0 z-0 opacity-15;
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--primary-dark) 38%,
+    var(--primary) 62%,
+    var(--primary-light) 82%,
+    var(--text-blue) 100%
+  );
 }
 
 .navbar-open .navbar-menu {
@@ -91,16 +111,20 @@
 }
 
 .navbar-menu-link {
-  @apply block border-b border-white/10 px-1 py-4 font-display text-[22px] leading-none font-normal text-menu-link no-underline;
+  @apply relative z-10 block border-b border-accent/20 px-1 py-4 font-display text-[22px] leading-none font-normal text-text-primary no-underline;
 }
 
-.navbar-menu-link:hover,
-.navbar-menu-link-active {
-  @apply text-join;
+.navbar-menu-link:hover {
+  @apply text-primary-light;
+}
+
+.navbar-menu-link-active,
+.navbar-menu-link-active:hover {
+  @apply text-accent underline underline-offset-4;
 }
 
 .navbar-menu-cta {
-  @apply mt-8 w-fit;
+  @apply relative z-10 mt-8 w-fit;
 }
 
 @media (min-width: 768px) {
@@ -145,7 +169,7 @@
 }
 
 .footer {
-  @apply relative overflow-hidden bg-ink text-white;
+  @apply relative overflow-hidden bg-ink text-text-primary;
   background-image: url("../assets/performanceSection/grid.png");
   background-position: bottom left;
   background-repeat: no-repeat;
@@ -155,18 +179,36 @@
 .footer::before {
   content: "";
   @apply pointer-events-none absolute inset-0;
-  background-image: radial-gradient(at bottom left, #050915d1 0%, #050915 25%);
+  background-image: radial-gradient(
+    at bottom left,
+    color-mix(in srgb, var(--bg-main) 82%, transparent) 0%,
+    var(--bg-main) 25%
+  );
+}
+
+/* Low-opacity metallic wash — mirrors About panel / Performance treatment */
+.footer::after {
+  content: "";
+  @apply pointer-events-none absolute inset-0 z-0 opacity-15;
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--primary-dark) 38%,
+    var(--primary) 62%,
+    var(--primary-light) 82%,
+    var(--text-blue) 100%
+  );
 }
 
 .footer-glow {
   @apply relative;
-  background-image: radial-gradient(at top center, #1d52e529 0%, #d6282800 40%);
+  background-image: radial-gradient(at top center, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .footer-glow::before {
   content: "";
   @apply pointer-events-none absolute inset-0;
-  background-image: radial-gradient(at bottom left, #1d52e529 0%, #d6282800 40%);
+  background-image: radial-gradient(at bottom left, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .footer-inner {
@@ -190,7 +232,7 @@
 }
 
 .footer-about {
-  @apply mb-5 font-body text-[14px] leading-[1.5] font-normal text-white/78;
+  @apply mb-5 font-body text-[14px] leading-[1.5] font-normal text-text-secondary;
 }
 
 .footer-socials {
@@ -198,11 +240,11 @@
 }
 
 .footer-social {
-  @apply inline-flex size-10 items-center justify-center rounded-full bg-white/27 text-white;
+  @apply inline-flex size-10 items-center justify-center rounded-full bg-secondary/27 text-accent;
 }
 
 .footer-social:hover {
-  @apply bg-join text-white;
+  @apply bg-join text-text-primary;
 }
 
 .footer-social-icon {
@@ -214,7 +256,7 @@
 }
 
 .footer-heading {
-  @apply mb-5 font-display text-[16px] leading-[1.3] font-normal text-white;
+  @apply mb-5 font-display text-[16px] leading-[1.3] font-normal text-text-primary;
 }
 
 .footer-links-list,
@@ -224,12 +266,12 @@
 
 .footer-link,
 .footer-contact-link {
-  @apply font-body text-[14px] leading-[1.5] font-normal text-white/83 no-underline;
+  @apply font-body text-[14px] leading-[1.5] font-normal text-text-secondary no-underline;
 }
 
 .footer-link:hover,
 .footer-contact-link:hover {
-  @apply text-mist;
+  @apply text-primary-light;
 }
 
 .footer-contact-link {
@@ -237,7 +279,7 @@
 }
 
 .footer-contact-icon {
-  @apply size-5 shrink-0 text-mist;
+  @apply size-5 shrink-0 text-accent;
 }
 
 .footer-address {
@@ -245,11 +287,11 @@
 }
 
 .footer-address-title {
-  @apply mb-[7px] font-display text-[16px] leading-[1.3] font-normal text-white;
+  @apply mb-[7px] font-display text-[16px] leading-[1.3] font-normal text-text-primary;
 }
 
 .footer-address-text {
-  @apply font-body text-[14px] leading-[1.5] font-normal text-white/78;
+  @apply font-body text-[14px] leading-[1.5] font-normal text-text-secondary;
 }
 
 .footer-join-wrap {
@@ -257,11 +299,11 @@
 }
 
 .footer-join {
-  @apply inline-flex items-center justify-center gap-2 rounded-[10px] bg-join-hover px-8 py-3.5 font-body text-[14px] leading-none font-medium text-white no-underline;
+  @apply inline-flex items-center justify-center gap-2 rounded-[10px] bg-join-hover px-8 py-3.5 font-body text-[14px] leading-none font-medium text-text-primary no-underline;
 }
 
 .footer-join:hover {
-  @apply bg-white text-menu;
+  @apply bg-join text-text-primary;
 }
 
 .footer-join-icon {
@@ -269,7 +311,7 @@
 }
 
 .footer-bar {
-  @apply relative z-20 flex flex-col items-center gap-8 border-t border-dashed border-white/27 pt-[30px];
+  @apply relative z-20 flex flex-col items-center gap-8 border-t border-dashed border-accent/30 pt-[30px];
 }
 
 .footer-copy-wrap,
@@ -278,7 +320,7 @@
 }
 
 .footer-copy {
-  @apply m-0 w-full py-2.5 text-center font-display text-[12px] leading-[16.9px] font-normal text-white;
+  @apply m-0 w-full py-2.5 text-center font-display text-[12px] leading-[16.9px] font-normal text-text-secondary;
 }
 
 .footer-legal {
@@ -286,11 +328,11 @@
 }
 
 .footer-legal-link {
-  @apply font-body text-[13px] leading-[1.5] font-normal text-white no-underline;
+  @apply font-body text-[13px] leading-[1.5] font-normal text-text-secondary no-underline;
 }
 
 .footer-legal-link:hover {
-  @apply text-[#6084E6];
+  @apply text-primary-light;
 }
 
 @media (min-width: 768px) {
@@ -395,10 +437,10 @@
 }
 
 .service-feature {
-  @apply relative overflow-x-clip px-[15px] pt-[100px] pb-[50px];
+  @apply relative overflow-x-clip bg-ink px-[15px] pt-[100px] pb-[50px];
   background-image:
-    radial-gradient(at top right, #1d52e529 0%, transparent 35%),
-    radial-gradient(at bottom left, #1d52e529 0%, transparent 40%),
+    radial-gradient(at top right, var(--glow-blue-soft) 0%, transparent 35%),
+    radial-gradient(at bottom left, var(--glow-blue-soft) 0%, transparent 40%),
     url("../assets/performanceSection/grid.png");
   background-position:
     top right,
@@ -414,7 +456,25 @@
 .service-feature::before {
   content: "";
   @apply pointer-events-none absolute inset-0;
-  background-image: radial-gradient(at bottom left, #050915d1 0%, #050915 25%);
+  background-image: radial-gradient(
+    at bottom left,
+    color-mix(in srgb, var(--bg-main) 82%, transparent) 0%,
+    var(--bg-main) 25%
+  );
+}
+
+/* Low-opacity metallic wash — mirrors About panel treatment */
+.service-feature::after {
+  content: "";
+  @apply pointer-events-none absolute inset-0 z-0 opacity-15;
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--primary-dark) 38%,
+    var(--primary) 62%,
+    var(--primary-light) 82%,
+    var(--text-blue) 100%
+  );
 }
 
 .service-feature-inner {
@@ -427,15 +487,16 @@
 
 .service-feature-featured {
   @apply overflow-hidden rounded-[30px] p-0.5;
-  background-image: linear-gradient(230deg, #afc2f6 0%, #0a1329 30%);
+  background-image: var(--gradient-card-border);
+  box-shadow: var(--shadow-card-border);
 }
 
 .service-feature-featured-frame {
-  @apply overflow-hidden rounded-[30px] bg-ink p-[15px];
+  @apply overflow-hidden rounded-[28px] bg-bg-card/75 p-[15px];
 }
 
 .service-feature-featured-image {
-  @apply block h-auto w-full rounded-[30px] object-cover;
+  @apply block h-auto w-full rounded-[28px] object-cover;
 }
 
 .service-feature-gallery-wrap {
@@ -447,12 +508,12 @@
 }
 
 .service-feature-gallery {
-  @apply relative z-10 rounded-[30px] border-2 border-transparent bg-menu/75 p-[15px] backdrop-blur-[7px];
+  @apply relative z-10 rounded-[30px] border-2 border-transparent bg-bg-card/75 p-[15px] backdrop-blur-[7px];
   box-shadow: -2px -2px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
 .service-feature-gallery:hover {
-  @apply border-mist;
+  @apply border-accent;
 }
 
 .service-feature-swiper {
@@ -474,7 +535,7 @@
 }
 
 .service-feature-swiper .swiper-pagination-bullet {
-  @apply m-0 mx-1 size-2.5 bg-white opacity-100;
+  @apply m-0 mx-1 size-2.5 bg-secondary-light opacity-100;
 }
 
 .service-feature-swiper .swiper-pagination-bullet-active {
@@ -486,23 +547,23 @@
 }
 
 .service-feature-watermark {
-  @apply relative z-0 m-0  font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] text-white/10 uppercase;
+  @apply relative z-0 m-0 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] text-accent/30 uppercase;
 }
 
 .service-feature-title {
-  @apply relative z-10 m-0 mb-5 font-display text-[30px] leading-[1.3] font-normal text-white capitalize;
+  @apply relative z-10 m-0 mb-5 font-display text-[48px] leading-[1.3] font-normal text-text-primary capitalize;
 }
 
 .service-feature-title-plain {
-  @apply text-white;
+  @apply text-text-primary;
 }
 
 .service-feature-title-mark {
-  @apply relative inline-block pb-[0.22em] italic;
+  @apply relative inline-block pb-[0.22em] text-primary-light italic;
 }
 
 .service-feature-underline {
-  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-mist;
+  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-accent;
 }
 
 .service-feature-underline path {
@@ -514,7 +575,7 @@
 }
 
 .service-feature-text {
-  @apply relative z-10 m-0 mb-5 font-body text-[17px] leading-[1.5] font-normal text-white/83;
+  @apply relative z-10 m-0 mb-5 font-body text-[17px] leading-[1.5] font-normal text-text-secondary;
 }
 
 .service-feature-list {
@@ -522,11 +583,11 @@
 }
 
 .service-feature-item {
-  @apply flex items-center gap-5 font-display text-[18px] leading-[1.3] font-normal text-white;
+  @apply flex items-center gap-5 font-display text-[18px] leading-[1.3] font-normal text-text-primary;
 }
 
 .service-feature-check {
-  @apply size-[35px] shrink-0 fill-mist;
+  @apply size-[35px] shrink-0 fill-accent;
 }
 
 @media (min-width: 768px) {
@@ -547,7 +608,7 @@
   }
 
   .service-feature-title {
-    @apply text-[35px];
+    @apply text-[52px];
   }
 
   .service-feature-item {
@@ -601,7 +662,11 @@
   @apply relative isolate flex flex-col overflow-hidden bg-ink px-[15px] pb-[50px];
   padding-top: var(--page-hero-pt);
   background-image:
-    radial-gradient(at top left, #0a1329bf 0%, #050915 60%),
+    radial-gradient(
+      at top left,
+      color-mix(in srgb, var(--bg-section) 75%, transparent) 0%,
+      var(--bg-main) 60%
+    ),
     url("../assets/performanceSection/grid.png");
   background-position: top left;
   background-size: cover;
@@ -613,12 +678,25 @@
   @apply pointer-events-none absolute inset-0 -z-10;
 }
 
+/* Low-opacity metallic wash (About panel recipe) */
 .page-hero::before {
-  background-image: radial-gradient(at top left, #0a1329 0%, transparent 40%);
+  opacity: 0.18;
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--primary-dark) 38%,
+    var(--primary) 62%,
+    var(--primary-light) 82%,
+    var(--text-blue) 100%
+  );
 }
 
 .page-hero::after {
-  background-image: radial-gradient(at bottom right, #1d52e529 0%, transparent 35%);
+  background-image: radial-gradient(
+    at bottom right,
+    var(--glow-blue-soft) 0%,
+    transparent 35%
+  );
 }
 
 .page-hero-inner {
@@ -626,19 +704,19 @@
 }
 
 .page-hero-kicker {
-  @apply m-0 font-display text-[13px] leading-[1.3] font-normal tracking-[2.5px] text-mist uppercase;
+  @apply m-0 font-display text-[36px] leading-[1.3] font-normal tracking-[2.5px] text-accent uppercase;
 }
 
 .page-hero-title {
-  @apply m-0 max-w-[1150px] font-display text-[35px] leading-[1.3] font-normal text-white capitalize;
+  @apply m-0 max-w-[1150px] font-display text-[86px] leading-[1.3] font-normal text-text-primary capitalize;
 }
 
 .page-hero-title-mark {
-  @apply relative inline-block pb-[0.22em] italic;
+  @apply relative inline-block pb-[0.22em] text-primary-light italic;
 }
 
 .page-hero-underline {
-  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-mist;
+  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-accent;
 }
 
 .page-hero-underline path {
@@ -650,11 +728,11 @@
 }
 
 .page-hero-cta {
-  @apply mt-2.5 inline-flex items-center justify-center gap-2.5 rounded-[30px] border border-join bg-join px-[35px] py-4 font-display text-[13px] leading-[1.3] font-normal tracking-[0.5px] text-white uppercase no-underline;
+  @apply mt-2.5 inline-flex items-center justify-center gap-2.5 rounded-[30px] border-2 border-accent bg-join px-[35px] py-4 font-display text-[13px] leading-[1.3] font-normal tracking-[0.5px] text-text-primary uppercase no-underline;
 }
 
 .page-hero-cta:hover {
-  @apply border-join-hover bg-join-hover text-white;
+  @apply border-accent bg-join-hover text-text-primary;
 }
 
 .page-hero-cta-icon {
@@ -687,8 +765,8 @@
 .page-hero-line {
   @apply pointer-events-none absolute bottom-0 left-0 z-0 h-[5px] w-full;
   background-image:
-    radial-gradient(at center, #afc2f6 0%, transparent 25%),
-    radial-gradient(at center, #1d52e5 0%, #050915 35%);
+    radial-gradient(at center, var(--primary-light) 0%, transparent 25%),
+    radial-gradient(at center, var(--primary) 0%, var(--bg-main) 35%);
 }
 
 @media (min-width: 768px) {
@@ -698,7 +776,7 @@
   }
 
   .page-hero-title {
-    @apply text-[45px];
+    @apply text-[64px];
   }
 
   .page-hero-line {
@@ -723,13 +801,27 @@
 
 .faq-section {
   @apply relative isolate overflow-hidden bg-ink px-[15px];
-  background-image: radial-gradient(at top right, #1d52e51f 0%, transparent 40%);
+  background-image: radial-gradient(at top right, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .faq-section::before {
   content: "";
   @apply pointer-events-none absolute inset-0 -z-10;
-  background-image: radial-gradient(at bottom left, #1d52e529 0%, transparent 40%);
+  background-image: radial-gradient(at bottom left, var(--glow-blue-soft) 0%, transparent 40%);
+}
+
+/* Low-opacity metallic wash — mirrors About panel treatment */
+.faq-section::after {
+  content: "";
+  @apply pointer-events-none absolute inset-0 z-0 opacity-15;
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--primary-dark) 38%,
+    var(--primary) 62%,
+    var(--primary-light) 82%,
+    var(--text-blue) 100%
+  );
 }
 
 .faq-section-inner {
@@ -741,13 +833,13 @@
 }
 
 .faq-section-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 m-0 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 m-0 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-accent/30 uppercase;
   /* Fallback until GSAP owns the transform for the slide reveal */
   /* transform: translate(-50%, -50%); */
 }
 
 .faq-section-title {
-  @apply relative z-10 m-0 text-center font-display text-[28px] leading-[1.3] font-normal text-balance text-white;
+  @apply relative z-10 m-0 text-center font-display text-[48px] leading-[1.3] font-normal text-balance text-text-primary;
 }
 
 .faq-section-title-line,
@@ -756,11 +848,11 @@
 }
 
 .faq-section-title-mark {
-  @apply relative mx-auto w-fit pb-[0.22em] italic;
+  @apply relative mx-auto w-fit pb-[0.22em] text-primary-light italic;
 }
 
 .faq-section-underline {
-  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-mist;
+  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-accent;
 }
 
 .faq-section-underline path {
@@ -775,12 +867,18 @@
   @apply flex flex-col gap-5;
 }
 
-/* Gradient border lives on border-box so overflow clips the animating panel to the rounded card */
+/* Soft gradient frame (About / Performance recipe). ::before is the translucent body so
+   <summary> can stay a direct child of <details> for accordion semantics. */
 .faq-section-item {
-  @apply overflow-hidden rounded-[30px] border-2 border-transparent;
-  background:
-    linear-gradient(var(--color-ink), var(--color-ink)) padding-box,
-    linear-gradient(230deg, #afc2f6 0%, #0a1329 30%) border-box;
+  @apply relative overflow-hidden rounded-[30px] p-0.5;
+  background-image: var(--gradient-card-border-soft);
+  box-shadow: var(--shadow-card-border);
+}
+
+.faq-section-item::before {
+  content: "";
+  @apply pointer-events-none absolute inset-0.5 rounded-[28px] bg-bg-card/75 backdrop-blur-[7px];
+  box-shadow: -2px -2px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
 .faq-section-item:has(.faq-section-question:focus-visible) {
@@ -788,7 +886,7 @@
 }
 
 .faq-section-question {
-  @apply flex cursor-pointer list-none items-center justify-between gap-5 px-[25px] py-5 outline-none;
+  @apply relative z-10 flex cursor-pointer list-none items-center justify-between gap-5 px-[25px] py-5 outline-none;
 }
 
 .faq-section-question::-webkit-details-marker {
@@ -800,7 +898,7 @@
 }
 
 .faq-section-question-text {
-  @apply font-display text-[18px] leading-[1.3] font-normal text-white;
+  @apply font-display text-[18px] leading-[1.3] font-normal text-text-primary;
 }
 
 .faq-section-icon {
@@ -823,11 +921,11 @@
 }
 
 .faq-section-answer-panel {
-  @apply overflow-hidden;
+  @apply relative z-10 overflow-hidden;
 }
 
 .faq-section-answer {
-  @apply m-0 px-[25px] pb-[25px] font-body text-[16px] leading-[1.6] font-normal text-white/78;
+  @apply m-0 px-[25px] pb-[25px] font-body text-[16px] leading-[1.6] font-normal text-text-secondary;
 }
 
 @media (min-width: 768px) {
@@ -836,7 +934,7 @@
   }
 
   .faq-section-title {
-    @apply text-[35px];
+    @apply text-[52px];
   }
 
   .faq-section-question {

@@ -1,0 +1,33 @@
+@reference "../index.css";
+
+.career-apply-input-error {
+  @apply border-red-400/70 focus:border-red-400 focus:ring-red-400/30;
+}
+
+.career-apply-field-error {
+  @apply m-0 font-body text-[13px] leading-[1.4] font-medium text-red-300;
+}
+
+.career-apply-upload {
+  @apply relative overflow-hidden rounded-[15px] border border-dashed border-white/20 bg-bg-card/75 px-5 py-4;
+}
+
+.career-apply-upload-error {
+  @apply border-red-400/70;
+}
+
+.career-apply-upload-input {
+  @apply absolute inset-0 z-10 cursor-pointer opacity-0;
+}
+
+.career-apply-upload-cue {
+  @apply pointer-events-none relative z-0 flex flex-col gap-1;
+}
+
+.career-apply-upload-title {
+  @apply font-body text-[16px] leading-[1.4] font-medium text-text-primary;
+}
+
+.career-apply-upload-hint {
+  @apply font-body text-[13px] leading-[1.4] text-text-muted;
+}

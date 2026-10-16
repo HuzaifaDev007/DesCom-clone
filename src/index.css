@@ -1,78 +1,148 @@
+
 @import "tailwindcss";
 
+/* ==========================================
+   GLOBAL BRAND THEME
+   Midnight Navy + Metallic Blue
+   White / Silver + Champagne Gold
+   ========================================== */
+
 @theme {
+  /* Core Brand */
   --color-ink: #050915;
-  --color-join: #1d52e5;
-  --color-join-hover: #1e387b;
-  --color-menu: #0a1329;
-  --color-menu-link: #f9fafe;
+  --color-join: #18577F;
+  --color-join-hover: #287FAE;
+  --color-menu: #0A1930;
+  --color-menu-link: #F8FAFC;
+  --color-mist: #B9C5CE;
+
+  /* Primary Blue */
+  --color-primary: #287FAE;
+  --color-primary-light: #4CB8DF;
+  --color-primary-dark: #18577F;
+  --color-ice: #8BDDED;
+
+  /* Silver / White */
+  --color-secondary: #B9C5CE;
+  --color-secondary-light: #F8FAFC;
+  --color-secondary-dark: #8297A6;
+  --color-silver: #B9C5CE;
+
+  /* Champagne Gold */
+  --color-accent: #E8D9BB;
+  --color-accent-light: #FFF4DB;
+  --color-accent-dark: #C5AF89;
+  --color-gold: #E8D9BB;
+
+  /* Backgrounds */
+  --color-bg-main: #050915;
+  --color-bg-section: #08111F;
+  --color-bg-section-dark: #030711;
+  --color-bg-card: #0C1B2E;
+  --color-bg-card-hover: #12263D;
+  --color-bg-surface: #132B43;
+
+  /* Text */
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #B9C5CE;
+  --color-text-muted: #8297A6;
+  --color-text-dark: #102235;
+
+  /* Borders */
+  --color-border-primary: #25445F;
+  --color-border-secondary: #37617C;
+  --color-border-muted: #172B42;
+  --color-border-blue: #287FAE;
+  --color-border-silver: #8297A6;
+
+  /* Fonts */
   --font-display: "Anton", sans-serif;
   --font-hero: "Oswald", sans-serif;
   --font-tagline: "Montserrat", sans-serif;
   --font-body: "Inter", sans-serif;
-  --color-mist: #afc2f6;
 }
 
 :root {
+
   /* ========================================
      BRAND COLORS
   ======================================== */
 
-  --primary: #1850e0;          /* Main electric blue */
-  --primary-light: #3b6cff;    /* Hover / lighter blue */
-  --primary-dark: #1239a8;     /* Dark blue */
+  --primary: #287FAE;
+  --primary-light: #4CB8DF;
+  --primary-dark: #18577F;
 
-  --secondary: #6c3eac;        /* Purple */
-  --secondary-light: #8b5cf6;  /* Bright purple */
-  --secondary-dark: #402080;   /* Dark purple */
+  --secondary: #B9C5CE;
+  --secondary-light: #F8FAFC;
+  --secondary-dark: #8297A6;
+
+  --accent: #E8D9BB;
+  --accent-light: #FFF4DB;
+  --accent-dark: #C5AF89;
 
 
   /* ========================================
      BACKGROUNDS
   ======================================== */
 
-  --bg-main: #050915;          /* Main page background */
-  --bg-section: #060b19;       /* Alternate section */
-  --bg-section-dark: #040711;  /* Darker section */
+  --bg-main: #050915;
+  --bg-section: #08111F;
+  --bg-section-dark: #030711;
 
-  --bg-card: #081029;          /* Cards */
-  --bg-card-hover: #0b1435;    /* Card hover */
+  --bg-card: #0C1B2E;
+  --bg-card-hover: #12263D;
 
-  --bg-surface: #0d1630;       /* Small surfaces / boxes */
-  --bg-overlay: rgba(5, 9, 21, 0.85);
+  --bg-surface: #132B43;
+  --bg-overlay: rgba(5, 9, 21, 0.88);
 
 
   /* ========================================
      TEXT
   ======================================== */
 
-  --text-primary: #f9f5f3;     /* Main white text */
-  --text-secondary: #b6b9be;   /* Paragraphs / secondary text */
-  --text-muted: #7e7379;       /* Muted text */
-  --text-dark: #1f232c;        /* Dark text if needed */
+  --text-primary: #F8FAFC;
+  --text-secondary: #B9C5CE;
+  --text-muted: #8297A6;
+  --text-dark: #102235;
+
+  --text-white: #FFFFFF;
+  --text-silver: #E2E8F0;
+  --text-blue: #8BDDED;
+  --text-accent: #E8D9BB;
 
 
   /* ========================================
      BORDERS
   ======================================== */
 
-  --border-primary: #1f3160;   /* Main card borders */
-  --border-secondary: #283868; /* Lighter border */
-  --border-muted: #182348;     /* Very subtle border */
+  --border-primary: #25445F;
+  --border-secondary: #37617C;
+  --border-muted: #172B42;
 
-  --border-blue: #1850e0;
-  --border-purple: #603090;
+  --border-blue: #287FAE;
+  --border-silver: #8297A6;
+  --border-accent: #C5AF89;
 
 
   /* ========================================
      GLOWS
   ======================================== */
 
-  --glow-blue: rgba(24, 80, 224, 0.45);
-  --glow-purple: rgba(108, 62, 172, 0.45);
+  --glow-blue: rgba(40, 127, 174, 0.45);
 
-  --glow-blue-strong: rgba(24, 80, 224, 0.7);
-  --glow-purple-strong: rgba(108, 62, 172, 0.7);
+  --glow-blue-soft: rgba(40, 127, 174, 0.16);
+
+  --glow-blue-strong:
+    rgba(76, 184, 223, 0.70);
+
+  --glow-silver:
+    rgba(185, 197, 206, 0.25);
+
+  --glow-silver-strong:
+    rgba(185, 197, 206, 0.50);
+
+  --glow-gold:
+    rgba(232, 217, 187, 0.30);
 
 
   /* ========================================
@@ -80,23 +150,174 @@
   ======================================== */
 
   --gradient-primary:
-    linear-gradient(135deg, #1850e0, #3b6cff);
+    linear-gradient(
+      135deg,
+      #18577F 0%,
+      #287FAE 50%,
+      #4CB8DF 100%
+    );
 
-  --gradient-purple:
-    linear-gradient(135deg, #402080, #8b5cf6);
+  --gradient-silver:
+    linear-gradient(
+      135deg,
+      #8297A6 0%,
+      #F8FAFC 50%,
+      #B9C5CE 100%
+    );
 
   --gradient-brand:
-    linear-gradient(135deg, #1850e0, #6c3eac);
+    linear-gradient(
+      135deg,
+      #18577F 0%,
+      #287FAE 45%,
+      #8BDDED 100%
+    );
 
   --gradient-dark:
-    linear-gradient(180deg, #050915 0%, #081029 100%);
+    linear-gradient(
+      180deg,
+      #050915 0%,
+      #08111F 50%,
+      #0C1B2E 100%
+    );
+
+  --gradient-metallic:
+    linear-gradient(
+      135deg,
+      #8297A6 0%,
+      #F8FAFC 45%,
+      #B9C5CE 100%
+    );
+
+  /* Card / frame edge: cyan top-right + gold bloom bottom-left (Performance recipe) */
+  --gradient-card-border:
+    radial-gradient(
+      140% 90% at 0% 100%,
+      var(--accent-light) 0%,
+      var(--accent) 10%,
+      transparent 42%
+    ),
+    linear-gradient(
+      230deg,
+      var(--primary-light) 0%,
+      var(--bg-section) 30%
+    );
+
+  /* Soft mid-fade variant for translucent card washes (About / feature cards) */
+  --gradient-card-border-soft:
+    radial-gradient(
+      140% 90% at 0% 100%,
+      var(--accent-light) 0%,
+      var(--accent) 10%,
+      transparent 42%
+    ),
+    linear-gradient(
+      230deg,
+      var(--primary-light) 0%,
+      color-mix(in srgb, var(--primary-light) 42%, var(--bg-section)) 24%,
+      color-mix(in srgb, var(--primary-dark) 50%, var(--bg-section)) 52%,
+      var(--bg-section) 78%
+    );
+
+  --gradient-card-border-photo:
+    radial-gradient(
+      140% 90% at 0% 100%,
+      var(--accent-light) 0%,
+      var(--accent) 10%,
+      transparent 42%
+    ),
+    linear-gradient(
+      45deg,
+      var(--primary-light) 0%,
+      transparent 30%
+    );
+
+  /* Soft gold outer glow for gradient-frame cards — keep low opacity (~12%) */
+  --shadow-card-border:
+    -8px 10px 28px color-mix(in srgb, var(--accent) 12%, transparent);
+
+  /* Hero wordmark: white → ice → metallic blue (matches reference) */
+  --gradient-hero-title:
+    linear-gradient(
+      180deg,
+      #FFFFFF 0%,
+      #F8FAFC 38%,
+      #8BDDED 58%,
+      #4CB8DF 72%,
+      #287FAE 88%,
+      #18577F 100%
+    );
+
+  --gradient-premium:
+    linear-gradient(
+      135deg,
+      #C5AF89 0%,
+      #FFF4DB 55%,
+      #E8D9BB 100%
+    );
 
 
   /* ========================================
      SPECIAL / DECORATIVE
   ======================================== */
 
-  --grid-color: rgba(31, 49, 96, 0.35);
-  --shine-white: rgba(249, 245, 243, 0.08);
-  --overlay-dark: rgba(5, 9, 21, 0.65);
+  --grid-color: rgba(55, 97, 124, 0.25);
+
+  --shine-white:
+    rgba(248, 250, 252, 0.08);
+
+  --overlay-dark:
+    rgba(5, 9, 21, 0.70);
+
+
+  /* ========================================
+     LEGACY COMPATIBILITY
+     Old purple variables now use silver.
+     Remove after migrating components.
+  ======================================== */
+
+  --border-purple: var(--border-silver);
+
+  --glow-purple: var(--glow-silver);
+
+  --glow-purple-strong:
+    var(--glow-silver-strong);
+
+  --gradient-purple: var(--gradient-silver);
+
+}
+
+
+/* ==========================================
+   GLOBAL BASE STYLES
+========================================== */
+
+@layer base {
+  html {
+    background-color: var(--bg-main);
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+  }
+
+  ::selection {
+    background-color: var(--primary-dark);
+    color: #FFFFFF;
+  }
+}
+
+/* Full-page screenshot mode: `?static=1` (see enableStaticScreenshotMode) */
+html.static-screenshot *,
+html.static-screenshot *::before,
+html.static-screenshot *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+html.static-screenshot video {
+  animation: none !important;
 }

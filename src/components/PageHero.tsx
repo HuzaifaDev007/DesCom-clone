@@ -1,4 +1,3 @@
-import torus from '../assets/footer-torus.png'
 import { usePageHeroReveal } from '../hooks/usePageHeroReveal'
 
 type PageHeroProps = {
@@ -24,7 +23,6 @@ export function PageHero({
 
   return (
     <section ref={ref} className="page-hero" aria-labelledby={titleId}>
-      <img className="page-hero-ring" src={torus} alt="" aria-hidden="true" />
       <span className="page-hero-orb page-hero-orb-a" aria-hidden="true" />
       <span className="page-hero-orb page-hero-orb-b" aria-hidden="true" />
       <span className="page-hero-line" aria-hidden="true" />

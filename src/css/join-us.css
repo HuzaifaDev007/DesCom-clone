@@ -6,13 +6,13 @@
 
 .join-us-criteria {
   @apply relative flex flex-col bg-ink;
-  background-image: radial-gradient(at top left, #1d52e529 0%, #050915 35%);
+  background-image: radial-gradient(at top left, var(--glow-blue-soft) 0%, var(--bg-main) 35%);
 }
 
 .join-us-criteria::before {
   content: "";
   @apply pointer-events-none absolute inset-0;
-  background-image: radial-gradient(at bottom left, #1d52e529 0%, transparent 40%);
+  background-image: radial-gradient(at bottom left, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .join-us-criteria-photo {
@@ -26,44 +26,69 @@
 .join-us-criteria-photo::after {
   content: "";
   @apply pointer-events-none absolute inset-0 opacity-35;
-  background-image: linear-gradient(180deg, #0a1329d9 0%, #050915 100%);
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-section) 85%, transparent) 0%,
+    var(--bg-main) 100%
+  );
 }
 
 .join-us-criteria-panel {
-  @apply relative z-10 flex w-full px-[15px] py-[50px];
+  @apply relative z-10 flex w-full bg-bg-section px-[15px] py-[50px];
+}
+
+.join-us-criteria-panel::before {
+  content: "";
+  @apply pointer-events-none absolute inset-0 z-0 opacity-15;
+  /* Same metallic stops as DESCOM title, low opacity over section navy */
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--primary-dark) 38%,
+    var(--primary) 62%,
+    var(--primary-light) 82%,
+    var(--text-blue) 100%
+  );
 }
 
 .join-us-criteria-copy {
-  @apply relative w-full;
+  @apply relative z-10 w-full;
 }
 
 .join-us-criteria-kicker {
-  @apply m-0 mb-[-28px] font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] text-white/10 uppercase;
+  @apply pointer-events-none relative z-0 m-0 mb-[-28px] font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] text-accent/30 uppercase;
 }
 
 .join-us-criteria-title {
-  @apply relative z-10 m-0 mb-[30px] font-display text-[30px] leading-[1.3] font-normal text-white capitalize;
+  @apply relative z-10 m-0 mb-[30px] font-display text-[48px] leading-[1.3] font-normal text-text-primary capitalize;
 }
 
 .join-us-criteria-highlight {
-  @apply relative block w-fit pr-2 font-display leading-[1.3] font-normal text-white italic;
+  @apply relative block w-fit pr-2 font-display leading-[1.3] font-normal text-primary-light italic;
 }
 
-.join-us-criteria-underline {
-  @apply pointer-events-none absolute -bottom-1 left-0 h-3.5 w-full text-mist;
+/* Gold underline under highlighted words in this section only */
+.join-us-criteria .highlight-underline-mark {
+  @apply text-accent;
+}
+
+.join-us-criteria-frame {
+  @apply relative z-10 overflow-hidden rounded-[30px] p-0.5;
+  background-image: var(--gradient-card-border-soft);
+  box-shadow: var(--shadow-card-border);
 }
 
 .join-us-criteria-list {
-  @apply relative z-10 m-0 flex list-none flex-col rounded-[30px] bg-menu/75 p-[25px] backdrop-blur-[7px];
+  @apply m-0 flex list-none flex-col rounded-[28px] bg-bg-card/75 p-[25px] backdrop-blur-[7px];
   box-shadow: -2px -2px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
 .join-us-criteria-item {
-  @apply flex items-start gap-[15px] border-b border-white/10 py-[18px] font-body text-[17px] leading-[1.5] font-normal text-white/83 first:pt-0 last:border-b-0 last:pb-0;
+  @apply flex items-start gap-[15px] border-b border-white/10 py-[18px] font-body text-[17px] leading-[1.5] font-normal text-text-secondary first:pt-0 last:border-b-0 last:pb-0;
 }
 
 .join-us-criteria-icon {
-  @apply mt-0.5 size-5 shrink-0 fill-mist;
+  @apply mt-0.5 size-5 shrink-0 fill-accent;
 }
 
 .join-us-criteria-orb {
@@ -77,7 +102,7 @@
   }
 
   .join-us-criteria-title {
-    @apply text-[35px];
+    @apply text-[52px];
   }
 
   .join-us-criteria-list {
@@ -110,7 +135,7 @@
     @apply mb-10 text-[70px];
   }
 
-  .join-us-criteria-list {
+  .join-us-criteria-frame {
     @apply -mr-[120px];
   }
 
@@ -130,18 +155,36 @@
 .join-us-benefits::before {
   content: "";
   @apply pointer-events-none absolute inset-0 -z-10;
-  background-image: radial-gradient(at bottom right, #050915d1 0%, #050915 25%);
+  background-image: radial-gradient(
+    at bottom right,
+    color-mix(in srgb, var(--bg-main) 82%, transparent) 0%,
+    var(--bg-main) 25%
+  );
+}
+
+/* Low-opacity metallic wash — mirrors About panel / Performance treatment */
+.join-us-benefits::after {
+  content: "";
+  @apply pointer-events-none absolute inset-0 z-0 opacity-15;
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--primary-dark) 38%,
+    var(--primary) 62%,
+    var(--primary-light) 82%,
+    var(--text-blue) 100%
+  );
 }
 
 .join-us-benefits-glow {
   @apply relative px-[15px];
-  background-image: radial-gradient(at top right, #1d52e529 0%, transparent 40%);
+  background-image: radial-gradient(at top right, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .join-us-benefits-glow::before {
   content: "";
   @apply pointer-events-none absolute inset-0;
-  background-image: radial-gradient(at bottom left, #1d52e529 0%, transparent 40%);
+  background-image: radial-gradient(at bottom left, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .join-us-benefits-inner {
@@ -157,13 +200,13 @@
 }
 
 .join-us-benefits-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 m-0 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 m-0 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-accent/30 uppercase;
   /* Fallback until GSAP owns the transform for the slide reveal */
   transform: translate(-50%, -50%);
 }
 
 .join-us-benefits-title {
-  @apply relative z-10 m-0 text-center font-display text-[30px] leading-[1.3] font-normal text-white capitalize;
+  @apply relative z-10 m-0 text-center font-display text-[48px] leading-[1.3] font-normal text-text-primary capitalize;
 }
 
 .join-us-benefits-title-line,
@@ -172,11 +215,11 @@
 }
 
 .join-us-benefits-title-mark {
-  @apply relative mx-auto w-fit pb-[0.22em] italic;
+  @apply relative mx-auto w-fit pb-[0.22em] text-primary-light italic;
 }
 
 .join-us-benefits-underline {
-  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-mist;
+  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-accent;
 }
 
 .join-us-benefits-underline path {
@@ -188,7 +231,7 @@
 }
 
 .join-us-benefits-text {
-  @apply relative z-10 m-0 mt-4 text-center font-body text-[17px] leading-[1.5] font-normal text-white/78;
+  @apply relative z-10 m-0 mt-4 text-center font-body text-[17px] leading-[1.5] font-normal text-text-secondary;
 }
 
 .join-us-benefits-grid {
@@ -197,25 +240,38 @@
 
 .join-us-benefits-card {
   @apply overflow-hidden rounded-[30px] p-0.5;
-  background-image: linear-gradient(230deg, #afc2f6 0%, #0a1329 30%);
+  background-image: var(--gradient-card-border-soft);
+  box-shadow: var(--shadow-card-border);
+}
+
+.join-us-benefits-card-featured {
+  background-image: var(--gradient-card-border-photo);
+  box-shadow: var(--shadow-card-border);
 }
 
 .join-us-benefits-card-body {
-  @apply relative isolate flex h-full min-h-[280px] flex-col justify-between gap-[30px] overflow-hidden rounded-[28px] bg-ink p-[35px];
+  @apply relative isolate flex h-full min-h-[280px] flex-col justify-between gap-[30px] overflow-hidden rounded-[28px] bg-bg-card/75 p-[35px] backdrop-blur-[7px];
+  box-shadow: -2px -2px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
 .join-us-benefits-card-photo {
-  @apply pointer-events-none absolute inset-0 -z-10 size-full object-cover object-center;
+  @apply pointer-events-none absolute inset-0 -z-10 size-full object-cover;
+  /* Keep faces in frame — featured card is short/wide so default center crops heads */
+  object-position: center 22%;
 }
 
 .join-us-benefits-card-featured .join-us-benefits-card-body::before {
   content: "";
   @apply pointer-events-none absolute inset-0 -z-10;
-  background-image: linear-gradient(180deg, #050915b3 0%, #050915 85%);
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-main) 70%, transparent) 0%,
+    var(--bg-main) 85%
+  );
 }
 
 .join-us-benefits-card-index {
-  @apply font-display text-[40px] leading-none font-normal text-mist/40;
+  @apply font-display text-[40px] leading-none font-normal text-accent/30;
 }
 
 .join-us-benefits-card-copy {
@@ -223,11 +279,11 @@
 }
 
 .join-us-benefits-card-title {
-  @apply m-0 font-display text-[22px] leading-[1.3] font-normal text-white;
+  @apply m-0 font-display text-[22px] leading-[1.3] font-normal text-text-primary;
 }
 
 .join-us-benefits-card-text {
-  @apply m-0 font-body text-[16px] leading-[1.5] font-normal text-white/78;
+  @apply m-0 font-body text-[16px] leading-[1.5] font-normal text-text-secondary;
 }
 
 @media (min-width: 768px) {
@@ -240,7 +296,7 @@
   }
 
   .join-us-benefits-title {
-    @apply text-[35px];
+    @apply text-[52px];
   }
 
   .join-us-benefits-grid {
@@ -319,8 +375,26 @@
   content: "";
   @apply pointer-events-none absolute inset-0 -z-10;
   background-image:
-    radial-gradient(at top right, #1d52e529 0%, transparent 40%),
-    radial-gradient(at bottom left, #050915d1 0%, #050915 30%);
+    radial-gradient(at top right, var(--glow-blue-soft) 0%, transparent 40%),
+    radial-gradient(
+      at bottom left,
+      color-mix(in srgb, var(--bg-main) 82%, transparent) 0%,
+      var(--bg-main) 30%
+    );
+}
+
+/* Low-opacity metallic wash — mirrors About panel / Performance treatment */
+.join-us-apply::after {
+  content: "";
+  @apply pointer-events-none absolute inset-0 z-0 opacity-15;
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--primary-dark) 38%,
+    var(--primary) 62%,
+    var(--primary-light) 82%,
+    var(--text-blue) 100%
+  );
 }
 
 .join-us-apply-inner {
@@ -328,40 +402,47 @@
 }
 
 .join-us-apply-intro {
-  @apply relative;
+  @apply relative z-10;
 }
 
 .join-us-apply-kicker {
-  @apply m-0 mb-[-28px] font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] text-white/10 uppercase;
+  @apply pointer-events-none relative z-0 m-0 mb-[-28px] font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] text-accent/30 uppercase;
 }
 
 .join-us-apply-title {
-  @apply relative z-10 m-0 mb-5 font-display text-[30px] leading-[1.3] font-normal text-white capitalize;
+  @apply relative z-10 m-0 mb-5 font-display text-[48px] leading-[1.3] font-normal text-text-primary capitalize;
 }
 
 .join-us-apply-highlight {
-  @apply relative block w-fit pr-2 font-display leading-[1.3] font-normal text-white italic;
+  @apply relative block w-fit pr-2 font-display leading-[1.3] font-normal text-primary-light italic;
 }
 
 .join-us-apply-underline {
-  @apply pointer-events-none absolute -bottom-1 left-0 h-3.5 w-full text-mist;
+  @apply pointer-events-none absolute -bottom-1 left-0 h-3.5 w-full text-accent;
+}
+
+/* Gold underline under HighlightUnderline marks in this section pattern */
+.join-us-apply .highlight-underline-mark {
+  @apply text-accent;
 }
 
 .join-us-apply-text {
-  @apply relative z-10 m-0 max-w-[520px] font-body text-[17px] leading-[1.5] font-normal text-white/83;
+  @apply relative z-10 m-0 max-w-[520px] font-body text-[17px] leading-[1.5] font-normal text-text-secondary;
 }
 
 .join-us-apply-stage {
-  @apply relative;
+  @apply relative z-10;
 }
 
 .join-us-apply-frame {
   @apply overflow-hidden rounded-[30px] p-0.5;
-  background-image: linear-gradient(230deg, #afc2f6 0%, #0a1329 30%);
+  background-image: var(--gradient-card-border-soft);
+  box-shadow: var(--shadow-card-border);
 }
 
 .join-us-apply-form {
-  @apply grid grid-cols-1 gap-5 rounded-[28px] bg-ink p-[25px];
+  @apply grid grid-cols-1 gap-5 rounded-[28px] bg-bg-card/75 p-[25px] backdrop-blur-[7px];
+  box-shadow: -2px -2px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
 .join-us-apply-field {
@@ -377,27 +458,27 @@
 }
 
 .join-us-apply-label {
-  @apply p-0 font-body text-[15px] leading-[1.3] font-medium text-white;
+  @apply p-0 font-body text-[15px] leading-[1.3] font-medium text-text-primary;
 }
 
 .join-us-apply-input {
-  @apply w-full rounded-[15px] border border-white/10 bg-menu/75 px-5 py-4 font-body text-[16px] leading-[1.4] text-white outline-none placeholder:text-white/40 focus:border-join focus:ring-2 focus:ring-join/30;
+  @apply w-full rounded-[15px] border border-white/10 bg-bg-card/75 px-5 py-4 font-body text-[16px] leading-[1.4] text-text-primary outline-none placeholder:text-text-muted focus:border-join focus:ring-2 focus:ring-join/30;
 }
 
 .join-us-apply-select {
   @apply cursor-pointer appearance-none pr-12;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23afc2f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234CB8DF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 20px center;
   background-size: 18px;
 }
 
 .join-us-apply-select:invalid {
-  @apply text-white/40;
+  @apply text-text-muted;
 }
 
 .join-us-apply-select option {
-  @apply bg-menu text-white;
+  @apply bg-bg-card text-text-primary;
 }
 
 .join-us-apply-textarea {
@@ -417,7 +498,7 @@
 }
 
 .join-us-apply-choice-label {
-  @apply flex items-center justify-center rounded-[15px] border border-white/10 bg-menu/75 px-5 py-4 font-body text-[16px] leading-[1.4] text-white/78;
+  @apply flex items-center justify-center rounded-[15px] border border-white/10 bg-bg-card/75 px-5 py-4 font-body text-[16px] leading-[1.4] text-text-secondary;
 }
 
 .join-us-apply-choice-input:checked + .join-us-apply-choice-label {
@@ -445,7 +526,7 @@
 }
 
 .join-us-apply-status-success {
-  @apply text-mist;
+  @apply text-text-secondary;
 }
 
 .join-us-apply-status-error {
@@ -462,7 +543,7 @@
   }
 
   .join-us-apply-title {
-    @apply text-[35px];
+    @apply text-[52px];
   }
 
   .join-us-apply-form {
@@ -514,13 +595,27 @@
 
 .join-us-steps {
   @apply relative isolate overflow-hidden bg-ink px-[15px];
-  background-image: radial-gradient(at top left, #1d52e51f 0%, transparent 40%);
+  background-image: radial-gradient(at top left, var(--glow-blue-soft) 0%, transparent 40%);
 }
 
 .join-us-steps::before {
   content: "";
   @apply pointer-events-none absolute inset-0 -z-10;
-  background-image: radial-gradient(at bottom right, #1d52e529 0%, transparent 40%);
+  background-image: radial-gradient(at bottom right, var(--glow-blue-soft) 0%, transparent 40%);
+}
+
+/* Low-opacity metallic wash — mirrors About panel / Performance treatment */
+.join-us-steps::after {
+  content: "";
+  @apply pointer-events-none absolute inset-0 z-0 opacity-15;
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-section) 0%,
+    var(--primary-dark) 38%,
+    var(--primary) 62%,
+    var(--primary-light) 82%,
+    var(--text-blue) 100%
+  );
 }
 
 .join-us-steps-inner {
@@ -532,13 +627,13 @@
 }
 
 .join-us-steps-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 m-0 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-white/10 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 m-0 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-accent/30 uppercase;
   /* Fallback until GSAP owns the transform for the slide reveal */
   /* transform: translate(-50%, -50%); */
 }
 
 .join-us-steps-title {
-  @apply relative z-10 m-0 text-center font-display text-[30px] leading-[1.3] font-normal text-white capitalize;
+  @apply relative z-10 m-0 text-center font-display text-[48px] leading-[1.3] font-normal text-text-primary capitalize;
 }
 
 .join-us-steps-title-line,
@@ -547,11 +642,11 @@
 }
 
 .join-us-steps-title-mark {
-  @apply relative mx-auto w-fit pb-[0.22em] italic;
+  @apply relative mx-auto w-fit pb-[0.22em] text-primary-light italic;
 }
 
 .join-us-steps-underline {
-  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-mist;
+  @apply pointer-events-none absolute bottom-0 left-0 h-[0.22em] w-full text-accent;
 }
 
 .join-us-steps-underline path {
@@ -568,7 +663,14 @@
 
 .join-us-steps-line {
   @apply pointer-events-none absolute top-[35px] bottom-[35px] left-[34px] w-0.5;
-  background-image: linear-gradient(180deg, #1d52e5 0%, #afc2f6 50%, #1d52e5 100%);
+  /* Same cyan + champagne-gold mix as --gradient-card-border, as a 1D connector */
+  background-image: linear-gradient(
+    180deg,
+    var(--primary-light) 0%,
+    var(--accent) 45%,
+    var(--accent-light) 55%,
+    var(--primary-light) 100%
+  );
 }
 
 .join-us-steps-list {
@@ -580,7 +682,14 @@
 }
 
 .join-us-steps-number {
-  @apply relative z-10 flex size-[70px] shrink-0 items-center justify-center rounded-full bg-join font-display text-[22px] leading-none font-normal text-white ring-8 ring-ink;
+  @apply relative z-10 flex size-[70px] shrink-0 items-center justify-center rounded-full p-0.5 font-display text-[22px] leading-none font-normal text-text-primary ring-8 ring-ink;
+  background-image: var(--gradient-card-border-soft);
+  box-shadow: var(--shadow-card-border);
+}
+
+.join-us-steps-number::before {
+  content: "";
+  @apply absolute inset-0.5 -z-10 rounded-full bg-bg-card/75 backdrop-blur-[7px];
   box-shadow: -2px -2px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
@@ -589,11 +698,11 @@
 }
 
 .join-us-steps-item-title {
-  @apply m-0 font-display text-[22px] leading-[1.3] font-normal text-white;
+  @apply m-0 font-display text-[22px] leading-[1.3] font-normal text-text-primary;
 }
 
 .join-us-steps-item-text {
-  @apply m-0 font-body text-[16px] leading-[1.5] font-normal text-white/78;
+  @apply m-0 font-body text-[16px] leading-[1.5] font-normal text-text-secondary;
 }
 
 @media (min-width: 768px) {
@@ -602,7 +711,7 @@
   }
 
   .join-us-steps-title {
-    @apply text-[35px];
+    @apply text-[52px];
   }
 }
 
@@ -625,7 +734,13 @@
 
   .join-us-steps-line {
     @apply top-[45px] right-[calc(100%/6)] bottom-auto left-[calc(100%/6)] h-0.5 w-auto;
-    background-image: linear-gradient(90deg, #1d52e5 0%, #afc2f6 50%, #1d52e5 100%);
+    background-image: linear-gradient(
+      90deg,
+      var(--primary-light) 0%,
+      var(--accent) 45%,
+      var(--accent-light) 55%,
+      var(--primary-light) 100%
+    );
   }
 
   .join-us-steps-item {

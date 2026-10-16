@@ -5,16 +5,18 @@
 }
 
 .contact-us-touch-method {
-  @apply rounded-[30px] p-0.5;
-  background-image: linear-gradient(230deg, #afc2f6 0%, #0a1329 30%);
+  @apply overflow-hidden rounded-[30px] p-0.5;
+  background-image: var(--gradient-card-border-soft);
+  box-shadow: var(--shadow-card-border);
 }
 
 .contact-us-touch-card {
-  @apply flex items-center gap-5 rounded-[28px] bg-ink px-[25px] py-5 text-white no-underline;
+  @apply flex items-center gap-5 rounded-[28px] bg-bg-card/75 px-[25px] py-5 text-text-primary no-underline backdrop-blur-[7px];
+  box-shadow: -2px -2px 10px 0 rgb(255 255 255 / 0.2) inset;
 }
 
 a.contact-us-touch-card:hover .contact-us-touch-value {
-  @apply text-mist;
+  @apply text-primary-light;
 }
 
 .contact-us-touch-icon-wrap {
@@ -31,11 +33,11 @@ a.contact-us-touch-card:hover .contact-us-touch-value {
 }
 
 .contact-us-touch-label {
-  @apply font-body text-[13px] leading-[1.3] font-medium tracking-[0.5px] text-mist uppercase;
+  @apply font-body text-[13px] leading-[1.3] font-medium tracking-[0.5px] text-text-secondary uppercase;
 }
 
 .contact-us-touch-value {
-  @apply font-display text-[20px] leading-[1.3] font-normal break-words text-white;
+  @apply font-display text-[20px] leading-[1.3] font-normal break-words text-text-primary;
 }
 
 @media (min-width: 768px) {
