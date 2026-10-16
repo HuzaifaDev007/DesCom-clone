@@ -10,10 +10,10 @@ import { HighlightUnderline } from './HighlightUnderline'
 import { CampaignsGridMotion } from './CampaignsGridMotion'
 
 const campaigns = [
-  { title: 'ACA Marketplace Plans', image: aca },
-  { title: 'Health Insurance', image: insurance },
   { title: 'Final Expense Life Insurance', image: medicare },
   { title: 'Medicaid Guidance', image: mva },
+  { title: 'ACA Marketplace Plans', image: aca },
+  { title: 'Health Insurance', image: insurance },
   { title: 'Home & Auto Coverage', image: home },
   { title: 'Business Protection', image: energy },
 ] as const

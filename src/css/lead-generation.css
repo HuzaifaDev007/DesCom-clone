@@ -142,6 +142,53 @@
   scroll-margin-top: 20px;
 }
 
+/* Compact lead inquiry form — scoped so Join Us / Contact forms stay unchanged */
+.lead-generation-inquiry .join-us-apply-form {
+  @apply gap-3.5 p-5;
+}
+
+.lead-generation-inquiry .join-us-apply-field {
+  @apply gap-1.5;
+}
+
+.lead-generation-inquiry .join-us-apply-label {
+  @apply text-[13px];
+}
+
+.lead-generation-inquiry .join-us-apply-input {
+  @apply rounded-[12px] px-3.5 py-2.5 text-[14px];
+}
+
+.lead-generation-inquiry .join-us-apply-select {
+  @apply pr-10;
+  background-position: right 14px center;
+  background-size: 16px;
+}
+
+.lead-generation-inquiry .join-us-apply-textarea {
+  @apply min-h-[88px];
+}
+
+.lead-generation-inquiry .join-us-apply-submit {
+  @apply rounded-[24px] px-7 py-3 text-[12px];
+}
+
+.lead-generation-inquiry .join-us-apply-status {
+  @apply text-[13px];
+}
+
+@media (min-width: 768px) {
+  .lead-generation-inquiry .join-us-apply-form {
+    @apply gap-x-5 gap-y-4 p-7;
+  }
+}
+
+@media (min-width: 1025px) {
+  .lead-generation-inquiry .join-us-apply-form {
+    @apply p-8;
+  }
+}
+
 .lead-generation-inquiry-consent {
   @apply flex items-start gap-4 rounded-[15px] border border-white/10 bg-menu/75 p-5;
 }

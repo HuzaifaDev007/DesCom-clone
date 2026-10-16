@@ -123,7 +123,8 @@
 }
 
 .home-about-photo-image {
-  @apply absolute inset-0 h-full w-full object-cover object-center;
+  @apply absolute inset-0 h-full w-full object-cover object-right;
+  aspect-ratio: 16/9;
 }
 
 .home-about-photo::after {

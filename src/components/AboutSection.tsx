@@ -1,4 +1,4 @@
-import teamPhoto from '../assets/career-team.png'
+import teamPhoto from '../assets/career-team.jpeg'
 import { useAboutSectionReveal } from '../hooks/useAboutSectionReveal'
 import { AboutTitleMotion } from './AboutTitleMotion'
 import { BackgroundScrollMotion } from './BackgroundScrollMotion'

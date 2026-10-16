@@ -1,0 +1,49 @@
+---
+description: Static website clone workflow — DOM, screenshots, and Tailwind structure
+alwaysApply: true
+---
+
+# Website clone
+
+Recreate the website's static structure and visual design first. Animations and advanced interactions come later.
+
+## Reference viewport
+
+Desktop screenshots are `1920 × 953` at `100%` zoom. That is the viewport, not the content width. Measure the real container from the original site. If a mobile screenshot is provided, use its exact viewport as the responsive reference.
+
+## Selected DOM is the structure source
+
+When a DOM section is selected in Cursor Browser, that selection is the primary structural reference. Use it for hierarchy, section boundaries, containers, wrappers, text, images, buttons, links, cards, nesting, and positioning.
+
+The screenshot shows what the section should look like. The selected DOM shows how it is structured. Use both.
+
+Inspect the selected element and its parents and children before implementing. Read computed styles when available: font size, weight, line height, letter spacing, color, background, width, height, max-width, min-height, padding, margin, gap, border, radius, display, position, flex, grid, alignment, object-fit, and overflow.
+
+Reproduce only properties that affect the visual result. Do not guess values that can be measured.
+
+## Source priority
+
+- Structure: selected DOM, then screenshot
+- Appearance: screenshot, then computed styles, then DOM
+
+## Static layout only
+
+Do not add GSAP, scroll or entrance animation, parallax, hover motion, or decorative transitions. Match the static page first.
+
+## React structure
+
+Split the page into components (`Navbar`, `Hero`, sections, `CTA`, `Footer`). Do not put the whole page in one component. Reuse a component when the same UI pattern repeats.
+
+## Tailwind
+
+Style with Tailwind. Reuse existing tokens for repeated container width, spacing, type size, radius, and color. Avoid one-off arbitrary values when a token already exists.
+
+## Responsive
+
+Match how the original site changes between desktop and mobile: nav, stacking, type size, spacing, padding, image size, alignment, visibility, button size, and content order.
+
+## Section workflow
+
+One section at a time: inspect, read the DOM, check computed styles, compare to the screenshot, build the component, then fix spacing, type, size, and position before the next section.
+
+If a value cannot be determined, approximate it and keep it easy to adjust.
