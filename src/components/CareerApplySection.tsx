@@ -218,7 +218,7 @@ export function CareerApplySection() {
                       {values.cv ? values.cv.name : 'Choose a file'}
                     </span>
                     <span className="career-apply-upload-hint">
-                      PDF, Word, PNG, or JPG · Max 5MB
+                      PDF, Word, PNG, or JPG · Max 3MB
                     </span>
                   </div>
                 </div>

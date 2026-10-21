@@ -37,7 +37,7 @@ const ACCEPTED_CV_TYPES = [
   'image/jpeg',
 ]
 const ACCEPTED_CV_EXTENSIONS = ['.pdf', '.doc', '.docx', '.png', '.jpg', '.jpeg']
-const MAX_CV_BYTES = 5 * 1024 * 1024
+const MAX_CV_BYTES = 3 * 1024 * 1024
 
 function hasAcceptedCvExtension(fileName: string) {
   const lower = fileName.toLowerCase()
@@ -82,7 +82,7 @@ export function validateCareerApplication(
   } else if (!isAcceptedCvFile(cv)) {
     errors.cv = 'CV must be a PDF, Word, PNG, or JPG file.'
   } else if (cv.size > MAX_CV_BYTES) {
-    errors.cv = 'CV must be 5MB or smaller.'
+    errors.cv = 'CV must be 3MB or smaller.'
   }
 
   return errors

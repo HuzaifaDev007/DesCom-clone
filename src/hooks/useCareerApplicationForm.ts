@@ -5,6 +5,7 @@ import {
   type CareerApplication,
   type CareerFieldErrors,
 } from '../lib/careerApplication'
+import { submitInquiry } from '../lib/submitInquiry'
 
 type FormStatus =
   | { type: 'idle' }
@@ -67,6 +68,13 @@ export function useCareerApplicationForm(onSubmit?: SubmitHandler) {
     setErrors({})
     setStatus({ type: 'submitting' })
     try {
+      await submitInquiry('career', {
+        fullName: values.fullName,
+        email: values.email,
+        contactNumber: values.contactNumber,
+        position: values.position,
+        cv: values.cv,
+      })
       await onSubmit?.(values)
       setValues(emptyCareerApplication)
       const form = event.currentTarget
@@ -75,10 +83,13 @@ export function useCareerApplicationForm(onSubmit?: SubmitHandler) {
         type: 'success',
         message: 'Application submitted successfully! We will be in touch soon.',
       })
-    } catch {
+    } catch (error) {
       setStatus({
         type: 'error',
-        message: 'Failed to submit application. Please try again later.',
+        message:
+          error instanceof Error
+            ? error.message
+            : 'Failed to submit application. Please try again later.',
       })
     }
   }

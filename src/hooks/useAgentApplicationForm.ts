@@ -4,6 +4,7 @@ import {
   validateAgentApplication,
   type AgentApplication,
 } from '../lib/agentApplication'
+import { submitInquiry } from '../lib/submitInquiry'
 
 type FormStatus =
   | { type: 'idle' }
@@ -35,16 +36,20 @@ export function useAgentApplicationForm(onSubmit?: SubmitHandler) {
 
     setStatus({ type: 'submitting' })
     try {
+      await submitInquiry('agent', values)
       await onSubmit?.(values)
       setValues(emptyAgentApplication)
       setStatus({
         type: 'success',
         message: 'Application submitted successfully! We will be in touch soon.',
       })
-    } catch {
+    } catch (error) {
       setStatus({
         type: 'error',
-        message: 'Failed to submit application. Please try again later.',
+        message:
+          error instanceof Error
+            ? error.message
+            : 'Failed to submit application. Please try again later.',
       })
     }
   }

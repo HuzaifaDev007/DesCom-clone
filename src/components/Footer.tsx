@@ -160,7 +160,7 @@ export function Footer() {
             <div className="footer-contact">
               <div className="footer-address">
                 <h2 className="footer-address-title">Visit Us</h2>
-                <p className="footer-address-text">New Jersey, USA</p>
+                <p className="footer-address-text">Kalispell, MT</p>
               </div>
               <ul className="footer-contact-list">
                 <li>
@@ -173,9 +173,9 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a className="footer-contact-link" href="tel:+9203485541825">
+                  <a className="footer-contact-link" href="tel:+16167379549">
                     <PhoneIcon />
-                    +92 0348 5541825
+                    +1 616 737 9549
                   </a>
                 </li>
               </ul>

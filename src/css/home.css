@@ -156,15 +156,15 @@
 }
 
 .home-about-kicker {
-  @apply pointer-events-none relative z-0 m-0 mb-[-28px] font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] text-accent/30 uppercase;
+  @apply pointer-events-none relative z-0 m-0 mb-[-28px] font-display text-[60px] leading-[1.3] font-bold tracking-[0.04em] text-accent/30 uppercase;
 }
 
 .home-about-title {
-  @apply relative z-10 mb-5 font-display text-[2.125rem] leading-[1.12] font-normal text-text-primary capitalize;
+  @apply relative z-10 mb-5 font-display text-[2.125rem] leading-[1.12] font-semibold text-text-primary capitalize;
 }
 
 .home-about-highlight {
-  @apply relative block w-fit font-display leading-[1.3] font-normal text-primary-light italic;
+  @apply relative block w-fit font-display leading-[1.3] font-semibold text-primary-light italic;
 }
 
 /* Gold underline under highlighted words on the home page only */
@@ -192,7 +192,7 @@
 }
 
 .home-about-card-title {
-  @apply mb-3 font-display text-[1.375rem] leading-[1.2] font-normal text-text-primary;
+  @apply mb-3 font-display text-[1.375rem] leading-[1.2] font-semibold text-text-primary;
 }
 
 .home-about-card-text {
@@ -338,13 +338,13 @@
 }
 
 .home-performance-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-accent/30 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[60px] leading-[1.3] font-bold tracking-[0.04em] whitespace-nowrap text-accent/30 uppercase;
   /* Fallback until GSAP owns the transform for the slide reveal */
   /* transform: translate(-50%, -50%); */
 }
 
 .home-performance-title {
-  @apply relative z-10 mx-auto w-full max-w-[900px] text-center font-display text-[2.125rem] leading-[1.12] font-normal text-text-primary capitalize;
+  @apply relative z-10 mx-auto w-full max-w-[900px] text-center font-display text-[2.125rem] leading-[1.12] font-semibold text-text-primary capitalize;
 }
 
 .home-performance-title-line,
@@ -445,7 +445,7 @@
 }
 
 .home-performance-card-title {
-  @apply mb-3 font-display text-[1.375rem] leading-[1.2] font-normal text-text-primary;
+  @apply mb-3 font-display text-[1.375rem] leading-[1.2] font-semibold text-text-primary;
 }
 
 .home-performance-card-text {
@@ -593,13 +593,13 @@
 }
 
 .home-trusted-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[60px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-accent/30 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[60px] leading-[1.3] font-bold tracking-[0.04em] whitespace-nowrap text-accent/30 uppercase;
   /* Fallback until GSAP owns the transform for the slide reveal */
   transform: translate(-50%, -50%);
 }
 
 .home-trusted-title {
-  @apply relative z-10 text-center font-display text-[2.125rem] leading-[1.12] font-normal text-text-primary capitalize;
+  @apply relative z-10 text-center font-display text-[2.125rem] leading-[1.12] font-semibold text-text-primary capitalize;
 }
 
 .home-trusted-title-line,
@@ -635,7 +635,7 @@
 }
 
 .home-trusted-card-value {
-  @apply font-display text-[2.75rem] leading-none font-normal text-text-primary;
+  @apply font-display text-[2.75rem] leading-none font-semibold text-text-primary;
 }
 
 @media (min-width: 768px) {
@@ -657,7 +657,7 @@
   }
 
   .home-trusted-card-label {
-    @apply font-display text-[17px] leading-[1.3] font-normal whitespace-nowrap text-text-primary;
+    @apply font-display text-[17px] leading-[1.3] font-semibold whitespace-nowrap text-text-primary;
   }
 }
 
@@ -740,13 +740,13 @@
 }
 
 .home-campaigns-kicker {
-  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[50px] leading-[1.3] font-normal tracking-[0.04em] whitespace-nowrap text-accent/30 uppercase;
+  @apply pointer-events-none absolute top-1/2 left-1/2 font-display text-[50px] leading-[1.3] font-bold tracking-[0.04em] whitespace-nowrap text-accent/30 uppercase;
   /* Fallback until GSAP owns the transform for the slide reveal */
   /* transform: translate(-50%, -50%); */
 }
 
 .home-campaigns-title {
-  @apply relative z-10 text-center font-display text-[48px] leading-[1.12] font-normal text-text-primary capitalize;
+  @apply relative z-10 text-center font-display text-[48px] leading-[1.12] font-semibold text-text-primary capitalize;
 }
 
 .home-campaigns-title-mark {
@@ -810,7 +810,7 @@
 }
 
 .home-campaigns-card-title {
-  @apply relative z-10 w-full text-left font-display text-[1.25rem] leading-[1.15] font-normal text-balance text-text-primary;
+  @apply relative z-10 w-full text-left font-display text-[1.25rem] leading-[1.15] font-semibold text-balance text-text-primary;
 }
 
 @media (min-width: 768px) {
@@ -945,7 +945,7 @@
 }
 
 .home-grow-title {
-  @apply w-full font-display text-[2rem] leading-[1.12] font-normal text-text-primary capitalize;
+  @apply w-full font-display text-[2rem] leading-[1.12] font-semibold text-text-primary capitalize;
 }
 
 .home-grow-title-line {

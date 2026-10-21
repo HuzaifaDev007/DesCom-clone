@@ -4,6 +4,7 @@ import {
   validateQuoteRequest,
   type QuoteRequest,
 } from '../lib/quoteRequest'
+import { submitInquiry } from '../lib/submitInquiry'
 
 type FormStatus =
   | { type: 'idle' }
@@ -35,16 +36,20 @@ export function useQuoteRequestForm(onSubmit?: SubmitHandler) {
 
     setStatus({ type: 'submitting' })
     try {
+      await submitInquiry('quote', values)
       await onSubmit?.(values)
       setValues(emptyQuoteRequest)
       setStatus({
         type: 'success',
         message: 'Quote request submitted successfully. We will contact you soon.',
       })
-    } catch {
+    } catch (error) {
       setStatus({
         type: 'error',
-        message: 'Failed to submit quote request. Please try again.',
+        message:
+          error instanceof Error
+            ? error.message
+            : 'Failed to submit quote request. Please try again.',
       })
     }
   }

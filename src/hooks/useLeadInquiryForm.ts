@@ -4,6 +4,7 @@ import {
   validateLeadInquiry,
   type LeadInquiry,
 } from '../lib/leadInquiry'
+import { submitInquiry } from '../lib/submitInquiry'
 
 type FormStatus =
   | { type: 'idle' }
@@ -39,16 +40,20 @@ export function useLeadInquiryForm(onSubmit?: SubmitHandler) {
 
     setStatus({ type: 'submitting' })
     try {
+      await submitInquiry('lead', values)
       await onSubmit?.(values)
       setValues(emptyLeadInquiry)
       setStatus({
         type: 'success',
         message: 'Thank you! We will follow up to talk through availability and next steps.',
       })
-    } catch {
+    } catch (error) {
       setStatus({
         type: 'error',
-        message: 'Failed to send your inquiry. Please try again later.',
+        message:
+          error instanceof Error
+            ? error.message
+            : 'Failed to send your inquiry. Please try again later.',
       })
     }
   }

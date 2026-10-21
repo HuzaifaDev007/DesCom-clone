@@ -4,6 +4,7 @@ import {
   validateContactInquiry,
   type ContactInquiry,
 } from '../lib/contactInquiry'
+import { submitInquiry } from '../lib/submitInquiry'
 
 type FormStatus =
   | { type: 'idle' }
@@ -39,16 +40,20 @@ export function useContactForm(onSubmit?: SubmitHandler) {
 
     setStatus({ type: 'submitting' })
     try {
+      await submitInquiry('contact', values)
       await onSubmit?.(values)
       setValues(emptyContactInquiry)
       setStatus({
         type: 'success',
         message: 'Thank you! Our team will get back to you shortly.',
       })
-    } catch {
+    } catch (error) {
       setStatus({
         type: 'error',
-        message: 'Failed to send your message. Please try again later.',
+        message:
+          error instanceof Error
+            ? error.message
+            : 'Failed to send your message. Please try again later.',
       })
     }
   }
