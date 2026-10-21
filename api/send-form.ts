@@ -1,4 +1,4 @@
-import { handleFormPost } from '../server/formMail.ts'
+import { handleFormPost } from '../server/formMail.js'
 
 type ApiRequest = {
   method?: string
