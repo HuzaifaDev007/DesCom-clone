@@ -47,7 +47,7 @@ export function LeadMatchSection() {
             </div>
             <p className="lead-generation-match-text">
               Finding qualified prospects is one of the hardest parts of growing
-              an insurance business. Unified Risk Solutions generates consumer
+              an insurance business. DesCom generates consumer
               interest across four key categories — ACA Marketplace plans,
               Medicaid, other health insurance coverage, and final expense life
               insurance — and connects that interest with agencies and agents

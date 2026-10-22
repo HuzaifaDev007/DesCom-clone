@@ -9,7 +9,7 @@ const faqCategories = [
     titleMark: 'Insurance',
     items: [
       {
-        question: 'How do I file a claim with Unified Risk Solutions?',
+        question: 'How do I file a claim with DesCom?',
         answer:
           'You can file a claim 24/7 through our online portal, by calling our dedicated claims hotline at +1 616 737 9549, or by contacting your personal agent directly. We recommend having your policy number and incident details ready to expedite the process.',
       },

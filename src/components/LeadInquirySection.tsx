@@ -192,7 +192,7 @@ export function LeadInquirySection() {
                     <div className="lead-generation-inquiry-consent-expanded">
                       <p>
                         By checking this box, I consent to receive text messages
-                        from Unified Solutions regarding my inquiry, services,
+                        from DesCom regarding my inquiry, services,
                         appointments, updates, and follow-ups. Message and data
                         rates may apply. Message frequency may vary. Reply STOP
                         to opt out and HELP for assistance. I have read and
@@ -218,7 +218,7 @@ export function LeadInquirySection() {
                       </p>
                       <p>
                         Your information will only be used to respond to your
-                        inquiry and communicate with you about Unified Solutions
+                        inquiry and communicate with you about DesCom
                         services.
                       </p>
                     </div>

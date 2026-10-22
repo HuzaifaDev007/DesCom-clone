@@ -232,7 +232,7 @@ export function ContactSection() {
                       htmlFor="contact-sms-consent"
                     >
                       By checking this box, I consent to receive text messages
-                      from Unified Solutions regarding my inquiry, services,
+                      from DesCom regarding my inquiry, services,
                       appointments, updates, and follow-ups. Message and data
                       rates may apply. Message frequency may vary. Reply STOP to
                       opt out and HELP for assistance. I have read and agree to

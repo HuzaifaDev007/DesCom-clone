@@ -43,9 +43,9 @@ const leadFaqs = [
       'Lead arrangements vary by category and program. We will explain exactly how leads are delivered for the options you are considering during our discussion — before you make any commitment.',
   },
   {
-    question: 'Is Unified Risk Solutions a government agency?',
+    question: 'Is DesCom a government agency?',
     answer:
-      'No. Unified Risk Solutions is a private insurance agency and is not affiliated with any government agency. We do not sell Medicaid coverage — our Medicaid-related leads are consumers seeking information and guidance about their coverage options.',
+      'No. DesCom is a private insurance agency and is not affiliated with any government agency. We do not sell Medicaid coverage — our Medicaid-related leads are consumers seeking information and guidance about their coverage options.',
   },
 ]
 

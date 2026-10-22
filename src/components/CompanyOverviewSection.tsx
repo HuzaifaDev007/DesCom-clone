@@ -56,7 +56,7 @@ export function CompanyOverviewSection() {
               </AboutTitleMotion>
             </div>
             <p className="about-us-overview-text">
-              Unified Risk Solutions was founded on a simple yet powerful
+              DesCom was founded on a simple yet powerful
               principle: everyone deserves access to clear, reliable, and
               comprehensive insurance coverage. We are an independent agency
               dedicated to serving individuals, families, and businesses across
