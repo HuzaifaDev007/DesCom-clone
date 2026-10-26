@@ -54,6 +54,7 @@ export function useCareerApplicationForm(onSubmit?: SubmitHandler) {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    const form = event.currentTarget
 
     const nextErrors = validateCareerApplication(values)
     if (Object.keys(nextErrors).length > 0) {
@@ -77,7 +78,6 @@ export function useCareerApplicationForm(onSubmit?: SubmitHandler) {
       })
       await onSubmit?.(values)
       setValues(emptyCareerApplication)
-      const form = event.currentTarget
       form.reset()
       setStatus({
         type: 'success',
